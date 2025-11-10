@@ -5,10 +5,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // Simulating auth state - replace with your actual auth context
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
-    photoURL: 'https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1750837098647.png', // Replace with actual user photo
+    photoURL: 'https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1750837098647.png',
     name: 'John Doe'
   });
 
@@ -46,11 +45,8 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Our Partners', path: '/partners' },
-    { name: 'Features', path: '/features' },
-    { name: 'Courses', path: '/courses' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Join Us', path: '/join' },
+    { name: 'All Courses', path: '/partners' },
+    { name: 'Mentors', path: '/features' }
   ];
 
   const handleNavClick = () => {
@@ -59,7 +55,6 @@ const Header = () => {
 
   const handleStartFreeClick = () => {
     console.log('Start Free clicked');
-    // Add your navigation logic here
   };
 
   return (
