@@ -1,0 +1,151 @@
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  // Simulating auth state - replace with your actual auth context
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({
+    photoURL: 'https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1750837098647.png', // Replace with actual user photo
+    name: 'John Doe'
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.classList.add('no-scroll');
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.classList.remove('no-scroll');
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isMenuOpen]);
+
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Our Partners', path: '/partners' },
+    { name: 'Features', path: '/features' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Join Us', path: '/join' },
+  ];
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleStartFreeClick = () => {
+    console.log('Start Free clicked');
+    // Add your navigation logic here
+  };
+
+  return (
+    <>
+      <header className={`learnova-header ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="header-container">
+          <div className="logo">
+            <img src="/Header/logo.png" alt="Learnova" className="logo-image" />
+          </div>
+
+          <nav className="desktop-nav">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="header-actions">
+            {isLoggedIn ? (
+              <div className="profile-nav desktop-profile">
+                <img src={user.photoURL} alt={user.name} className="profile-pic" />
+              </div>
+            ) : (
+              <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
+                Start Free
+                <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            )}
+
+            <label className="hamburger">
+              <input 
+                type="checkbox" 
+                checked={isMenuOpen}
+                onChange={(e) => setIsMenuOpen(e.target.checked)}
+              />
+              <svg viewBox="0 0 32 32">
+                <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                <path className="line" d="M7 16 27 16"></path>
+              </svg>
+            </label>
+          </div>
+        </div>
+      </header>
+
+      <div className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)} />
+      
+      <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+        <nav className="mobile-nav">
+          {navItems.map((item, index) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+              style={{ transitionDelay: isMenuOpen ? `${index * 50 + 100}ms` : '0ms' }}
+              onClick={handleNavClick}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+          
+          {isLoggedIn ? (
+            <div >
+            </div>
+          ) : (
+            <button 
+              className="start-free-btn"
+              style={{ transitionDelay: isMenuOpen ? `${navItems.length * 50 + 100}ms` : '0ms' }}
+              onClick={handleStartFreeClick}
+            >
+              Start Free
+              <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          )}
+        </nav>
+      </div>
+    </>
+  );
+};
+
+export default Header;
