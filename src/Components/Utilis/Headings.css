@@ -1,0 +1,75 @@
+/* heading Section */
+.heading-section {
+    padding: 80px 20px;
+    background: #f8fafc;
+    width: 100%;
+}
+
+.heading-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.heading-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: #dbeafe;
+    color: #2563eb;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+}
+
+.heading-heading {
+    font-size: 56px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.heading-description {
+    font-size: 20px;
+    font-weight: 400;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heading-section {
+        padding: 60px 20px;
+    }
+
+    .heading-badge {
+        font-size: 14px;
+        padding: 6px 20px;
+    }
+
+    .heading-heading {
+        font-size: 36px;
+    }
+
+    .heading-description {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading-section {
+        padding: 50px 16px;
+    }
+
+    .heading-heading {
+        font-size: 28px;
+    }
+
+    .heading-description {
+        font-size: 16px;
+    }
+}
