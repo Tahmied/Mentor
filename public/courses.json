@@ -1,0 +1,209 @@
+[
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e11",
+        "title": "Complete WordPress Theme Development",
+        "category": "WordPress Development",
+        "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+        "lessons": 7,
+        "students": 4,
+        "instructor": {
+            "name": "Mohiuddin Sumon",
+            "title": "WordPress Developer",
+            "avatar": "https://i.pravatar.cc/100?img=12"
+        },
+        "rating": {
+            "average": 5.0,
+            "totalReviews": 20
+        },
+        "price": 99.0,
+        "currency": "USD",
+        "slug": "complete-wordpress-theme-development",
+        "status": "active",
+        "createdAt": "2025-10-20T10:00:00Z",
+        "updatedAt": "2025-11-01T12:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e12",
+        "title": "React Frontend Mastery",
+        "category": "Frontend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+        "lessons": 12,
+        "students": 10,
+        "instructor": {
+            "name": "Tahmied Hossain",
+            "title": "Full Stack Developer",
+            "avatar": "https://i.pravatar.cc/100?img=33"
+        },
+        "rating": {
+            "average": 4.8,
+            "totalReviews": 35
+        },
+        "price": 120.0,
+        "currency": "USD",
+        "slug": "react-frontend-mastery",
+        "status": "active",
+        "createdAt": "2025-09-12T09:30:00Z",
+        "updatedAt": "2025-10-05T08:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e13",
+        "title": "Node.js Backend API Development",
+        "category": "Backend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1581090464071-5c2a9a6b7f8b?w=600&h=400&fit=crop",
+        "lessons": 9,
+        "students": 8,
+        "instructor": {
+            "name": "Arif Rahman",
+            "title": "Backend Engineer",
+            "avatar": "https://i.pravatar.cc/100?img=25"
+        },
+        "rating": {
+            "average": 4.9,
+            "totalReviews": 27
+        },
+        "price": 89.0,
+        "currency": "USD",
+        "slug": "nodejs-backend-api-development",
+        "status": "active",
+        "createdAt": "2025-08-22T15:00:00Z",
+        "updatedAt": "2025-10-28T12:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e11",
+        "title": "Complete WordPress Theme Development",
+        "category": "WordPress Development",
+        "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+        "lessons": 7,
+        "students": 4,
+        "instructor": {
+            "name": "Mohiuddin Sumon",
+            "title": "WordPress Developer",
+            "avatar": "https://i.pravatar.cc/100?img=12"
+        },
+        "rating": {
+            "average": 5.0,
+            "totalReviews": 20
+        },
+        "price": 99.0,
+        "currency": "USD",
+        "slug": "complete-wordpress-theme-development",
+        "status": "active",
+        "createdAt": "2025-10-20T10:00:00Z",
+        "updatedAt": "2025-11-01T12:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e12",
+        "title": "React Frontend Mastery",
+        "category": "Frontend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+        "lessons": 12,
+        "students": 10,
+        "instructor": {
+            "name": "Tahmied Hossain",
+            "title": "Full Stack Developer",
+            "avatar": "https://i.pravatar.cc/100?img=33"
+        },
+        "rating": {
+            "average": 4.8,
+            "totalReviews": 35
+        },
+        "price": 120.0,
+        "currency": "USD",
+        "slug": "react-frontend-mastery",
+        "status": "active",
+        "createdAt": "2025-09-12T09:30:00Z",
+        "updatedAt": "2025-10-05T08:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e13",
+        "title": "Node.js Backend API Development",
+        "category": "Backend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1581090464071-5c2a9a6b7f8b?w=600&h=400&fit=crop",
+        "lessons": 9,
+        "students": 8,
+        "instructor": {
+            "name": "Arif Rahman",
+            "title": "Backend Engineer",
+            "avatar": "https://i.pravatar.cc/100?img=25"
+        },
+        "rating": {
+            "average": 4.9,
+            "totalReviews": 27
+        },
+        "price": 89.0,
+        "currency": "USD",
+        "slug": "nodejs-backend-api-development",
+        "status": "active",
+        "createdAt": "2025-08-22T15:00:00Z",
+        "updatedAt": "2025-10-28T12:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e11",
+        "title": "Complete WordPress Theme Development",
+        "category": "WordPress Development",
+        "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+        "lessons": 7,
+        "students": 4,
+        "instructor": {
+            "name": "Mohiuddin Sumon",
+            "title": "WordPress Developer",
+            "avatar": "https://i.pravatar.cc/100?img=12"
+        },
+        "rating": {
+            "average": 5.0,
+            "totalReviews": 20
+        },
+        "price": 99.0,
+        "currency": "USD",
+        "slug": "complete-wordpress-theme-development",
+        "status": "active",
+        "createdAt": "2025-10-20T10:00:00Z",
+        "updatedAt": "2025-11-01T12:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e12",
+        "title": "React Frontend Mastery",
+        "category": "Frontend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+        "lessons": 12,
+        "students": 10,
+        "instructor": {
+            "name": "Tahmied Hossain",
+            "title": "Full Stack Developer",
+            "avatar": "https://i.pravatar.cc/100?img=33"
+        },
+        "rating": {
+            "average": 4.8,
+            "totalReviews": 35
+        },
+        "price": 120.0,
+        "currency": "USD",
+        "slug": "react-frontend-mastery",
+        "status": "active",
+        "createdAt": "2025-09-12T09:30:00Z",
+        "updatedAt": "2025-10-05T08:00:00Z"
+    },
+    {
+        "_id": "672f0c1e3a2a9b9f5b8a1e13",
+        "title": "Node.js Backend API Development",
+        "category": "Backend Development",
+        "thumbnail": "https://images.unsplash.com/photo-1581090464071-5c2a9a6b7f8b?w=600&h=400&fit=crop",
+        "lessons": 9,
+        "students": 8,
+        "instructor": {
+            "name": "Arif Rahman",
+            "title": "Backend Engineer",
+            "avatar": "https://i.pravatar.cc/100?img=25"
+        },
+        "rating": {
+            "average": 4.9,
+            "totalReviews": 27
+        },
+        "price": 89.0,
+        "currency": "USD",
+        "slug": "nodejs-backend-api-development",
+        "status": "active",
+        "createdAt": "2025-08-22T15:00:00Z",
+        "updatedAt": "2025-10-28T12:00:00Z"
+    }
+]
