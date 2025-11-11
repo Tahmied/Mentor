@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './ctabtn.css';
 
 const Ctabtn = ({ text, link }) => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Ctabtn = ({ text, link }) => {
   };
 
   return (
-    <button onClick={handleClick} className="cta-btn-comp start-free-btn desktop-btn">
+    <button onClick={handleClick} className="cta-btn-comp all-cta-btn">
       {text}
       <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
         <path
