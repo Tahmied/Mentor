@@ -53,7 +53,6 @@ const Courses = () => {
                     </div>
                 </div>
 
-           
                 <div className="course-item">
                     <div className="course-thumbnail">
                         <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop" alt="Web Design"/>
