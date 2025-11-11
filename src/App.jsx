@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import Login from './Components/Authentication/Login/Login'
+import Registration from './Components/Authentication/Register/Registration'
 import AllCourses from './Components/Courses/AllCourses'
 import Home from './Components/Homepage/Home'
 import Root from './Root'
@@ -10,8 +12,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, Component: Home, loader: ()=> fetch('/courses.json')
-      }, {
+      }, 
+      {
         path: '/courses', Component : AllCourses, loader: ()=> fetch('/courses.json')
+      }, 
+      {
+        path: '/login', Component : Login
+      },
+      {
+        path: '/register', Component : Registration
       }
     ]
   },

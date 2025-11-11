@@ -62,7 +62,7 @@ const Header = () => {
       <header className={`learnova-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <div className="logo">
-            <img src="/Header/logo.png" alt="Learnova" className="logo-image" />
+            <NavLink to={'/'}><img src="/Header/logo.png" alt="Learnova" className="logo-image" /></NavLink> 
           </div>
 
           <nav className="desktop-nav">
@@ -83,12 +83,13 @@ const Header = () => {
                 <img src={user.photoURL} alt={user.name} className="profile-pic" />
               </div>
             ) : (
-              <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
+              <NavLink to={'/login'}>              <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
                 Start Free
                 <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
                   <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </button>
+              </button></NavLink>
+
             )}
 
             <label className="hamburger">
@@ -126,7 +127,7 @@ const Header = () => {
             <div >
             </div>
           ) : (
-            <button 
+            <NavLink to={'/login'}>            <button 
               className="start-free-btn"
               style={{ transitionDelay: isMenuOpen ? `${navItems.length * 50 + 100}ms` : '0ms' }}
               onClick={handleStartFreeClick}
@@ -135,7 +136,8 @@ const Header = () => {
               <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
                 <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </button>
+            </button></NavLink>
+
           )}
         </nav>
       </div>
