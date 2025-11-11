@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import Loader from "../Utilis/Loader";
 import Choose from "./Choose";
 import Courses from "./Courses";
 import Cta from "./Cta";
@@ -8,7 +10,10 @@ const Home = () => {
     return (
         <>
             <Hero></Hero>
-            <Courses></Courses>
+            <Suspense fallback={<Loader></Loader>}>
+                <Courses></Courses>
+            </Suspense>
+            
             <Choose></Choose>
             <Topinstructor></Topinstructor>
             <Cta></Cta>

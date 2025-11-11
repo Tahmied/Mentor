@@ -1,11 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
 import Course from '../Utilis/Course';
-import Ctabtn from '../Utilis/Ctabtn';
 import Headings from '../Utilis/Headings';
-import './courses.css';
-const Courses = () => {
-    const coursesData = useLoaderData()
-    const courses = coursesData.slice(0, 6);
+const AllCourses = () => {
+    const courses = useLoaderData()
     return (
         <section className="courses">
             <Headings sectionName={'Popular Courses'} Title={'Top Class Courses'} Desc={'Discover Courses Trusted By Thousands of Learners Worldwide'}></Headings>
@@ -31,9 +28,9 @@ const Courses = () => {
                     <p>No courses available.</p>
                 )}
             </div>
-            <Ctabtn text={'View All Courses'} link={'/courses'}></Ctabtn>
+           
         </section>
     );
 };
 
-export default Courses;
+export default AllCourses;
