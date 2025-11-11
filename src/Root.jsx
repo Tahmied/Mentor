@@ -1,4 +1,5 @@
 import { Outlet, useNavigation } from 'react-router-dom';
+import Footer from './Components/Utilis/Footer';
 import Header from './Components/Utilis/Header';
 import Loader from './Components/Utilis/Loader';
 
@@ -12,6 +13,7 @@ const Root = () => {
                 navigation.state === 'loading' ? <Loader></Loader> : <Outlet></Outlet>
             }
         </div>
+        <Footer></Footer>
         </>
     );
 };
