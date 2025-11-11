@@ -1,3 +1,4 @@
+import Ctabtn from '../Utilis/Ctabtn';
 import Headings from '../Utilis/Headings';
 import './courses.css';
 const Courses = () => {
@@ -288,6 +289,7 @@ const Courses = () => {
                     </div>
                 </div>
             </div>
+            <Ctabtn text={'View All Courses'} link={'/courses'}></Ctabtn>
         </section>
     );
 };

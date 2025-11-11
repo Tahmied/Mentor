@@ -1,6 +1,7 @@
 import Choose from "./Choose";
 import Courses from "./Courses";
 import Hero from "./Hero";
+import Topinstructor from "./Topinstructor";
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
             <Hero></Hero>
             <Courses></Courses>
             <Choose></Choose>
+            <Topinstructor></Topinstructor>
         </>
     );
 };

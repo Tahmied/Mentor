@@ -1,15 +1,18 @@
 .features-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem auto;
+    background-color: #e8f0fe;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Changed: Always 3 columns on desktop */
     gap: 30px;
     width: 80%;
     margin: 0 auto;
+    max-width: 1300px;
 }
 
 .feature-card {

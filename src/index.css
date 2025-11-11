@@ -401,3 +401,7 @@ a {
     height: 35px;
   }
 }
+
+.cta-btn-comp {
+  margin: 2rem auto;
+}
