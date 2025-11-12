@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-
 import axios from 'axios';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import Loader from '../../Utilis/Loader';
+import { AuthContext } from '../AuthContext';
 import './login.css';
 
 const Login = () => {
@@ -11,13 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false)
-
-    const AuthContext = React.createContext({
-        login: () => { },
-    });
-
-
-    const { login } = useContext(AuthContext)
+    const {login} = useContext(AuthContext)
 
     function handleGoogleLogin() {
 
@@ -39,7 +33,12 @@ const Login = () => {
                     'Content-Type': 'application/json'
                 }, withCredentials: true
             })
-            console.log(loginRes)
+            let usersEmail = loginRes.data.data.user.email
+            let usersFullName = loginRes.data.data.user.fullName
+            let usersAccessToken = loginRes.data.data.accessToken
+            let usersDpPath = loginRes.data.data.user.dpPath
+            
+            login(usersEmail, usersFullName, usersAccessToken, usersDpPath)
         } catch (error) {
             console.log(error.response.data.message)
             setLoading(false)
