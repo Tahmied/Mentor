@@ -1,14 +1,17 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 
+import axios from 'axios';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import { auth } from '../../Utilis/firebase.init';
 import Loader from '../../Utilis/Loader';
+import { AuthContext } from '../AuthContext';
 import './registration.css';
 
+const googleAuthProvider = new GoogleAuthProvider()
 const Registration = () => {
-    const AuthContext = React.createContext({
-        login: () => { },
-    });
-    const { login } = useContext(AuthContext)
+    const { login, googleLogin } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         fullName: '',
@@ -18,9 +21,9 @@ const Registration = () => {
         photoURL: ''
     });
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -34,21 +37,133 @@ const Registration = () => {
         setShowPassword(prevState => !prevState);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-     
-    };
+        setLoading(true);
 
+        // Validate password (optional - add your own rules)
+        if (formData.password.length < 6) {
+            Swal.fire({
+                title: 'Weak Password',
+                text: 'Password must be at least 6 characters long',
+                icon: 'warning',
+                showConfirmButton: true
+            });
+            setLoading(false);
+            return;
+        }
+
+        const registerDetails = {
+            email: formData.email,
+            fullName: formData.fullName,
+            password: formData.password,
+            dpPath: formData.photoURL
+        };
+
+        try {
+            // Register the user
+            await axios.post(
+                `${import.meta.env.VITE_BACKEND}/api/v1/users/register`,
+                registerDetails,
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    withCredentials: true
+                }
+            );
+
+            // After successful registration, log them in
+            const loginRes = await axios.post(
+                `${import.meta.env.VITE_BACKEND}/api/v1/users/login`,
+                {
+                    email: formData.email,
+                    password: formData.password
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    withCredentials: true
+                }
+            );
+
+            // Set user in context
+            login(
+                loginRes.data.data.user.email,
+                loginRes.data.data.user.fullName,
+                loginRes.data.data.accessToken,
+                loginRes.data.data.user.dpPath
+            );
+
+            setLoading(false);
+
+            // Show success message
+            Swal.fire({
+                title: 'Registration Successful!',
+                text: 'Your account has been created successfully',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                navigate('/');
+            });
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+            Swal.fire({
+                title: 'Registration Failed',
+                text: error.response?.data?.message || 'Email already exists or invalid data',
+                icon: 'error',
+                showConfirmButton: true
+            });
+        }
+    };
+    
 
     function handleGoogleLogin() {
+        setLoading(true);
+        signInWithPopup(auth, googleAuthProvider)
+            .then((res) => {
+                console.log(res.user);
+                const email = res.user.email;
+                const uid = res.user.uid;
+                const name = res.user.displayName;
+                const dpPath = res.user.photoURL;
+                const accessToken = res.user.accessToken;
 
+                googleLogin(email, name, accessToken, dpPath, uid);
+                setLoading(false);
+
+                Swal.fire({
+                    title: 'Registration Successful!',
+                    text: 'You have been registered and logged in',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    navigate('/');
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                    title: 'Registration Failed',
+                    text: 'Something went wrong with Google registration',
+                    icon: 'error',
+                    showConfirmButton: true
+                });
+                setLoading(false);
+            });
     }
+
     if (loading) {
-        return <Loader></Loader>
+        return <Loader></Loader>;
     }
+
     return (
         <>
-        {/* <Helmet>
+            {/* <Helmet>
             <title>Create Account | ToyTopia</title>
         </Helmet> */}
             <section className="registration-sec">
