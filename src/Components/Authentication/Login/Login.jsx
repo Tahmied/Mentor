@@ -1,9 +1,14 @@
 import axios from 'axios';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
+import { auth } from '../../Utilis/firebase.init';
 import Loader from '../../Utilis/Loader';
 import { AuthContext } from '../AuthContext';
 import './login.css';
+
+const googleAuthProvider = new GoogleAuthProvider()
 
 const Login = () => {
     const navigate = useNavigate()
@@ -11,10 +16,39 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false)
-    const {login} = useContext(AuthContext)
+    const { login, googleLogin } = useContext(AuthContext)
 
     function handleGoogleLogin() {
-
+        setLoading(true)
+        signInWithPopup(auth, googleAuthProvider)
+            .then((res) => {
+                console.log(res.user)
+                const email = res.user.email
+                const uid = res.user.uid
+                const name = res.user.displayName
+                const dpPath = res.user.photoURL
+                const accessToken = res.user.accessToken
+                googleLogin(email, name, accessToken, dpPath, uid)
+                setLoading(false)
+                Swal.fire({
+                    title: 'Login Successfull',
+                    text: 'You have been logged in properly',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(() => {
+                    navigate('/')
+                })
+            })
+            .catch(() => {
+                Swal.fire({
+                    title: 'Login Faild',
+                    text: 'Account is not registered or wrong email/pass',
+                    icon: 'error',
+                    showConfirmButton: 'false'
+                });
+                setLoading(false)
+            })
     }
 
     const handleLogin = async (e) => {

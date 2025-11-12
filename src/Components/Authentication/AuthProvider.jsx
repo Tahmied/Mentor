@@ -36,8 +36,79 @@ const AuthProvider = ({ children }) => {
         setUser(userData)
     }
 
+    const register = async (email, password, fullName, dpPath,) => {
+
+    }
+
+    const googleLogin = async (email, fullName, accessToken, dpPath, password) => {
+        // check if user exists, if exists just login
+        // if user doesn't exists register user
+        try {
+            // check user exists
+            const res = await axios.post(
+                `${import.meta.env.VITE_BACKEND}/api/v1/users/checkExistingUser`,
+                { email },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'authorization': `Bearer mMURu2QtsK82hQVpB68aru30p1rfFVW5aUqIk3PaTW4jPmK4H7IG32ikMX9AcDbB`,
+                    }, withCredentials: true
+                }
+            )
+            console.log('checking user', res)
+            // jodi thake login kor
+            if (res?.data?.data) {
+                try {
+                    const loginRes = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/login`, { "email": email, "password": password }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, withCredentials: true
+                    })
+                    login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
+                } catch (error) {
+                    console.log(error.response.data.message)
+                }
+            } else {
+                await register(email, password, fullName, dpPath)
+                login(email, fullName, accessToken, dpPath)
+            }
+
+        } catch (error) {
+            console.log('Error checking user:', error)
+            // jodi user na thake register kor
+            try {
+                const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/register`,
+                    { 'email': email, 'fullName': fullName, 'password': password, dpPath: dpPath },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, withCredentials: true
+                    }
+                )
+                console.log(res?.data?.data)
+                console.log(res)
+                try {
+                    const loginRes = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/login`, { "email": email, "password": password }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }, withCredentials: true
+                    })
+                    login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
+                } catch (error) {
+                    console.log(error.response.data.message)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            // login(email, fullName, accessToken, dpPath)
+
+
+        }
+    }
+
+
     return (
-        <AuthContext.Provider value={{ user, login }}>
+        <AuthContext.Provider value={{ user, login, googleLogin }}>
             {children}
         </AuthContext.Provider>
     );
