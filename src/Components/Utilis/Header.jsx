@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../Authentication/AuthContext';
+import HeaderDropdown from './HeaderDropdown'; // Add this import
+import './dropdown.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user } = useContext(AuthContext)
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const { user } = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedinUser, setUser] = useState(null);
 
@@ -15,13 +18,12 @@ const Header = () => {
         name: user.fullName,
         photoURL: user.dpPath
       }
-      setUser(userData)
+      setUser(userData);
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
     }
   }, [user]);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,11 +57,36 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'All Courses', path: '/courses' },
-    { name: 'Mentors', path: '/features' }
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropdownActive && !event.target.closest('.profile-nav') && !event.target.closest('.dropdown-menu')) {
+        setIsDropdownActive(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDropdownActive]);
+
+  let navItems;
+
+  if (isLoggedIn) {
+    navItems = [
+      { name: 'Home', path: '/' },
+      { name: 'All Courses', path: '/courses' },
+      { name: 'Mentors', path: '/features' },
+      { name: 'My Courses', path: '/my-courses'},
+      { name: 'My Enrollments', path: '/my-enrollments'}
+    ];
+  } else {
+    navItems = [
+      { name: 'Home', path: '/' },
+      { name: 'All Courses', path: '/courses' },
+      { name: 'Mentors', path: '/features' }
+    ];
+  }
+
+
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
@@ -67,6 +94,10 @@ const Header = () => {
 
   const handleStartFreeClick = () => {
     console.log('Start Free clicked');
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownActive(!isDropdownActive);
   };
 
   return (
@@ -91,17 +122,26 @@ const Header = () => {
 
           <div className="header-actions">
             {isLoggedIn ? (
-              <div className="profile-nav desktop-profile">
-                <img src={loggedinUser.photoURL} alt={loggedinUser.name} className="profile-pic" />
+              <div className="profile-wrapper">
+                <div onClick={toggleDropdown} className="profile-nav desktop-profile">
+                  <img src={loggedinUser.photoURL} alt={loggedinUser.name} className="profile-pic" />
+                </div>
+                {isDropdownActive && (
+                  <HeaderDropdown
+                    user={loggedinUser}
+                    setIsDropdownActive={setIsDropdownActive}
+                  />
+                )}
               </div>
             ) : (
-              <NavLink to={'/login'}>              <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
-                Start Free
-                <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button></NavLink>
-
+              <NavLink to={'/login'}>
+                <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
+                  Start Free
+                  <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </NavLink>
             )}
 
             <label className="hamburger">
@@ -136,20 +176,22 @@ const Header = () => {
           ))}
 
           {isLoggedIn ? (
-            <div >
+            <div>
+
             </div>
           ) : (
-            <NavLink to={'/login'}>            <button
-              className="start-free-btn"
-              style={{ transitionDelay: isMenuOpen ? `${navItems.length * 50 + 100}ms` : '0ms' }}
-              onClick={handleStartFreeClick}
-            >
-              Start Free
-              <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button></NavLink>
-
+            <NavLink to={'/login'}>
+              <button
+                className="start-free-btn"
+                style={{ transitionDelay: isMenuOpen ? `${navItems.length * 50 + 100}ms` : '0ms' }}
+                onClick={handleStartFreeClick}
+              >
+                Start Free
+                <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </NavLink>
           )}
         </nav>
       </div>

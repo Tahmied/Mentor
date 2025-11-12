@@ -36,10 +36,6 @@ const AuthProvider = ({ children }) => {
         setUser(userData)
     }
 
-    const register = async (email, password, fullName, dpPath,) => {
-
-    }
-
     const googleLogin = async (email, fullName, accessToken, dpPath, password) => {
         // check if user exists, if exists just login
         // if user doesn't exists register user
