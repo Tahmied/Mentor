@@ -2,14 +2,23 @@ import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 import { AuthContext } from '../Authentication/AuthContext';
+import Loader from '../Utilis/Loader';
 import './Profile.css';
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext)
+    console.log(user)
+
+    if (!user) {
+        return <div className="profile-container">
+            <Loader></Loader>
+        </div>
+    }
+
     return (
         <>
             <Helmet>
-                <title>My Profile | ToyTopia</title>
+                <title>My Profile | Mentor</title>
             </Helmet>
             <div className="profile-container">
                 <div className="profile-header">
@@ -25,7 +34,7 @@ const MyProfile = () => {
                     <div className="profile-photo-section">
                         <div className="photo-container">
                             <img
-                                src={user.photoURL || '/assets/usericon.svg'}
+                                src={user.dpPath || '/assets/usericon.svg'}
                                 alt="Profile"
                                 className="profile-photo"
                             />
@@ -35,13 +44,13 @@ const MyProfile = () => {
                     <div className="profile-details">
                         <div className="detail-group">
                             <label>Photo Url</label>
-                            <div className="detail-value">{user.photoURL}</div>
+                            <div className="detail-value">{user.dpPath}</div>
                         </div>
 
 
                         <div className="detail-group">
                             <label>Display Name</label>
-                            <div className="detail-value">{user.displayName}</div>
+                            <div className="detail-value">{user.fullName}</div>
                         </div>
 
                         <div className="detail-group">
