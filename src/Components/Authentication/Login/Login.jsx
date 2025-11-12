@@ -33,12 +33,7 @@ const Login = () => {
                     'Content-Type': 'application/json'
                 }, withCredentials: true
             })
-            let usersEmail = loginRes.data.data.user.email
-            let usersFullName = loginRes.data.data.user.fullName
-            let usersAccessToken = loginRes.data.data.accessToken
-            let usersDpPath = loginRes.data.data.user.dpPath
-            
-            login(usersEmail, usersFullName, usersAccessToken, usersDpPath)
+            login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
         } catch (error) {
             console.log(error.response.data.message)
             setLoading(false)

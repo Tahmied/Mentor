@@ -9,7 +9,7 @@ import Topinstructor from "./Topinstructor";
 
 const Home = () => {
     const {user} = useContext(AuthContext)
-    console.log(user)
+    console.log('in home',user)
     return (
         <>
             <Hero></Hero>
