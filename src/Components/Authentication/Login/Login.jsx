@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 
+import axios from 'axios';
 import Loader from '../../Utilis/Loader';
 import './login.css';
 
@@ -22,8 +23,27 @@ const Login = () => {
 
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        const email = e.target.email.value
+        const pass = e.target.password.value
 
+        const loginDetails = {
+            "email": email,
+            "password": pass
+        }
+        try {
+            const loginRes = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/login`, loginDetails, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }, withCredentials: true
+            })
+            console.log(loginRes)
+        } catch (error) {
+            console.log(error.response.data.message)
+            setLoading(false)
+        }
     };
 
     const handleTogglePassword = () => {
