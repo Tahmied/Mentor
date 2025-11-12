@@ -1,0 +1,505 @@
+/* ============================================
+   MY COURSES PAGE - INSTRUCTOR DASHBOARD
+   ============================================ */
+
+/* Page Container */
+.instructor-courses-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+}
+
+/* Page Header */
+.instructor-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 2rem;
+}
+
+.instructor-header-content {
+    flex: 1;
+}
+
+.instructor-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.instructor-page-subtitle {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.instructor-create-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.instructor-create-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.instructor-plus-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+}
+
+/* Stats Section */
+.instructor-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.instructor-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.instructor-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.instructor-stat-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+}
+
+.instructor-stat-content {
+    flex: 1;
+}
+
+.instructor-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.instructor-stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Courses Grid */
+.instructor-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+}
+
+/* Course Card */
+.instructor-course-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.instructor-course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumbnail */
+.instructor-card-thumbnail {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.instructor-card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.instructor-course-card:hover .instructor-card-thumbnail img {
+    transform: scale(1.05);
+}
+
+.instructor-status-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    background: rgba(34, 197, 94, 0.95);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 1;
+}
+
+/* Card Body */
+.instructor-card-body {
+    padding: 20px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.instructor-card-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e6f7f8;
+    color: #2563eb;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: fit-content;
+    text-transform: capitalize;
+}
+
+.instructor-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Meta Info */
+.instructor-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.instructor-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.instructor-meta-item svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+/* Instructor Info */
+.instructor-card-instructor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    margin-bottom: 16px;
+}
+
+.instructor-card-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.instructor-card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.instructor-card-info {
+    flex: 1;
+}
+
+.instructor-card-name {
+    font-weight: 600;
+    color: #212529;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.instructor-card-bio {
+    font-size: 12px;
+    color: #2563eb;
+    font-weight: 400;
+}
+
+/* Rating */
+.instructor-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.instructor-card-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.instructor-star {
+    color: #2563eb;
+    font-size: 16px;
+}
+
+.instructor-rating-text {
+    font-size: 14px;
+    color: #666;
+    margin-left: 2px;
+    font-weight: 500;
+}
+
+/* Card Footer */
+.instructor-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 24px;
+    gap: 1rem;
+}
+
+.instructor-card-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #212529;
+}
+
+/* Action Buttons */
+.instructor-card-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.instructor-view-btn,
+.instructor-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.instructor-view-btn,
+.instructor-edit-btn {
+    background: #e6f7f8;
+    color: #3b82f6;
+}
+
+.instructor-view-btn:hover,
+.instructor-edit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .instructor-courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .instructor-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .instructor-stat-card {
+        padding: 1.25rem;
+    }
+
+    .instructor-stat-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .instructor-stat-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .instructor-stat-value {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .instructor-courses-page {
+        padding: 2rem 1.5rem;
+    }
+
+    .instructor-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .instructor-page-title {
+        font-size: 2rem;
+    }
+
+    .instructor-create-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .instructor-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .instructor-courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .instructor-card-thumbnail {
+        height: 180px;
+    }
+
+    .instructor-card-body {
+        padding: 20px;
+    }
+
+    .instructor-card-title {
+        font-size: 18px;
+    }
+
+    .instructor-card-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructor-courses-page {
+        padding: 1.5rem 1rem;
+    }
+
+    .instructor-page-title {
+        font-size: 1.75rem;
+    }
+
+    .instructor-page-subtitle {
+        font-size: 0.875rem;
+    }
+
+    .instructor-stat-value {
+        font-size: 1.5rem;
+    }
+
+    .instructor-stat-label {
+        font-size: 0.8rem;
+    }
+
+    .instructor-status-badge {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    .instructor-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .instructor-card-actions {
+        width: 100%;
+    }
+
+    .instructor-view-btn,
+    .instructor-edit-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .instructor-card-body {
+        padding: 16px;
+    }
+
+    .instructor-card-title {
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    .instructor-card-footer {
+        padding: 16px;
+    }
+
+    .instructor-card-price {
+        font-size: 24px;
+    }
+
+    .instructor-view-btn,
+    .instructor-edit-btn {
+        padding: 0.5rem 1rem;
+        font-size: 13px;
+    }
+
+    .instructor-view-btn svg,
+    .instructor-edit-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}

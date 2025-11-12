@@ -3,6 +3,7 @@ import './App.css'
 import Login from './Components/Authentication/Login/Login'
 import Registration from './Components/Authentication/Register/Registration'
 import AllCourses from './Components/Courses/AllCourses'
+import MyCourses from './Components/Courses/MyCourses'
 import Home from './Components/Homepage/Home'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'edit-profile', Component : EditProfile
+      },
+      {
+        path : 'my-courses', Component: MyCourses
       }
     ]
   },

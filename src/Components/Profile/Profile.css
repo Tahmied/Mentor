@@ -1,7 +1,7 @@
 /* Profile.css */
 :root {
-    --primary-color: #7680fe;
-    --primary-dark: #5a64d8;
+    --primary-color: #3b82f6;
+    --primary-dark: #2070f0;
     --text-color: #333;
     --border-color: #e1e1e1;
     --background-color: #f8f9fa;
@@ -30,7 +30,7 @@
     font-size: 28px;
 }
 
-.header-actions {
+.profile-header-actions {
     display: flex;
     gap: 12px;
 }
@@ -220,7 +220,7 @@
         text-align: center;
     }
 
-    .header-actions {
+    .profile-header-actions {
         width: 100%;
         justify-content: center;
     }

@@ -92,7 +92,7 @@ const EditProfile = () => {
             <div className="profile-container">
                 <div className="profile-header">
                     <h1>Edit Profile</h1>
-                    <div className="header-actions">
+                    <div className="profile-header-actions">
                         <button onClick={() => navigate(-1)} className="cancel-btn">
                             Cancel
                         </button>
