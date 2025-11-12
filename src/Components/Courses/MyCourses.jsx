@@ -49,7 +49,6 @@ const MyCourses = () => {
           <div onClick={() => navigate(`course/${course._id}`)} key={course._id} className="instructor-course-card">
             <div className="instructor-card-thumbnail">
               <img src={course.thumbnail} alt={course.title} />
-              <div className="instructor-status-badge">{course.status}</div>
             </div>
             <div className="instructor-card-body">
               <span className="instructor-card-category">{course.category}</span>

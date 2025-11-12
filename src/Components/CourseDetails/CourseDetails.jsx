@@ -101,11 +101,11 @@ const CourseDetails = () => {
           </div>
 
           <div className="course-sidebar">
-            <div className="course-thumbnail-wrapper">
+            <div className="course-details-thumbnail-wrapper">
               <img 
                 src={course.thumbnail} 
                 alt={course.title}
-                className="course-thumbnail"
+                className="course-details-thumbnail"
               />
             </div>
             

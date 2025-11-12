@@ -157,15 +157,14 @@
     gap: 20px;
 }
 
-.course-thumbnail-wrapper {
+.course-details-thumbnail-wrapper {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.course-thumbnail {
-    width: 100%;
-    height: 250px;
+.course-details-thumbnail {
+    height: 100%;
     object-fit: cover;
     display: block;
 }
