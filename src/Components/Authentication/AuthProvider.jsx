@@ -64,9 +64,6 @@ const AuthProvider = ({ children }) => {
                 } catch (error) {
                     console.log(error.response.data.message)
                 }
-            } else {
-                await register(email, password, fullName, dpPath)
-                login(email, fullName, accessToken, dpPath)
             }
 
         } catch (error) {
@@ -96,15 +93,26 @@ const AuthProvider = ({ children }) => {
             } catch (error) {
                 console.log(error)
             }
-            // login(email, fullName, accessToken, dpPath)
+        }
+    }
 
-
+    const logOut = async () => {
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/logout`,{},{
+                headers : {
+                    'Content-Type' : 'application/json'
+                }, withCredentials:true
+            })
+            setUser(null)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
         }
     }
 
 
     return (
-        <AuthContext.Provider value={{ user, login, googleLogin }}>
+        <AuthContext.Provider value={{ user, login, googleLogin, logOut }}>
             {children}
         </AuthContext.Provider>
     );
