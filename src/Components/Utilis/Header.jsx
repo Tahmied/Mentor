@@ -1,15 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../Authentication/AuthContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
+  const { user } = useContext(AuthContext)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({
-    photoURL: 'https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1750837098647.png',
-    name: 'John Doe'
-  });
+  const [loggedinUser, setUser] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      const userData = {
+        name: user.fullName,
+        photoURL: user.dpPath
+      }
+      setUser(userData)
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +74,7 @@ const Header = () => {
       <header className={`learnova-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <div className="logo">
-            <NavLink to={'/'}><img src="/Header/logo.png" alt="Learnova" className="logo-image" /></NavLink> 
+            <NavLink to={'/'}><img src="/Header/logo.png" alt="Learnova" className="logo-image" /></NavLink>
           </div>
 
           <nav className="desktop-nav">
@@ -80,21 +92,21 @@ const Header = () => {
           <div className="header-actions">
             {isLoggedIn ? (
               <div className="profile-nav desktop-profile">
-                <img src={user.photoURL} alt={user.name} className="profile-pic" />
+                <img src={loggedinUser.photoURL} alt={loggedinUser.name} className="profile-pic" />
               </div>
             ) : (
               <NavLink to={'/login'}>              <button className="start-free-btn desktop-btn" onClick={handleStartFreeClick}>
                 Start Free
                 <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button></NavLink>
 
             )}
 
             <label className="hamburger">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={isMenuOpen}
                 onChange={(e) => setIsMenuOpen(e.target.checked)}
               />
@@ -108,7 +120,7 @@ const Header = () => {
       </header>
 
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)} />
-      
+
       <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         <nav className="mobile-nav">
           {navItems.map((item, index) => (
@@ -122,19 +134,19 @@ const Header = () => {
               {item.name}
             </NavLink>
           ))}
-          
+
           {isLoggedIn ? (
             <div >
             </div>
           ) : (
-            <NavLink to={'/login'}>            <button 
+            <NavLink to={'/login'}>            <button
               className="start-free-btn"
               style={{ transitionDelay: isMenuOpen ? `${navItems.length * 50 + 100}ms` : '0ms' }}
               onClick={handleStartFreeClick}
             >
               Start Free
               <svg className="arrow-icon" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 3 L13 8 L8 13 M13 8 L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button></NavLink>
 

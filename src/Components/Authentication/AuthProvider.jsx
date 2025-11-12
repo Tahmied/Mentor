@@ -18,8 +18,7 @@ const AuthProvider = ({ children }) => {
                     'dpPath': res.data.data.dpPath
                 }
                 setUser(userData)
-            } catch (error) {
-                console.log(error)
+            } catch (err) {
                 setUser(null)
             }
         }
