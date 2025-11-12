@@ -17,10 +17,10 @@ const router = createBrowserRouter([
     path: '/', Component: Root,
     children: [
       {
-        index: true, Component: Home, loader: ()=> fetch('/courses.json')
+        index: true, Component: Home, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
       }, 
       {
-        path: '/courses', Component : AllCourses, loader: ()=> fetch('/courses.json')
+        path: '/courses', Component : AllCourses, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
       }, 
       {
         path: '/login', Component : Login

@@ -3,8 +3,17 @@ import Course from '../Utilis/Course';
 import Ctabtn from '../Utilis/Ctabtn';
 import Headings from '../Utilis/Headings';
 import './courses.css';
+
+function getRandomRating() {
+  const rating = Math.random() * (5 - 3) + 3; 
+  return Math.round(rating * 10) / 10;
+}
+
+
 const Courses = () => {
-    const coursesData = useLoaderData()
+    const fetchData = useLoaderData()
+    const coursesData = fetchData.data
+    console.log(coursesData)
     const courses = coursesData.slice(0, 6);
     return (
         <section className="courses">
@@ -18,13 +27,12 @@ const Courses = () => {
                             category={course.category}
                             title={course.title}
                             lessons={course.lessons}
-                            students={course.students}
-                            instructorName={course.instructor.name}
-                            instructorImg={course.instructor.avatar}
+                            instructorName={course.instructor.fullName}
+                            instructorImg={course.instructor.dpPath}
                             instructorBio={course.instructor.title}
-                            ratings={course.rating.average}
+                            ratings={getRandomRating()}
                             price={course.price}
-                            link={`/courses/${course.slug}`}
+                            link={`/course/${course._id}`}
                         />
                     ))
                 ) : (
