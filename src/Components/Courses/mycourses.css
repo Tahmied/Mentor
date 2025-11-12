@@ -1,8 +1,3 @@
-/* ============================================
-   MY COURSES PAGE - INSTRUCTOR DASHBOARD
-   ============================================ */
-
-/* Page Container */
 .instructor-courses-page {
     max-width: 1400px;
     margin: 0 auto;
@@ -10,7 +5,6 @@
     min-height: 100vh;
 }
 
-/* Page Header */
 .instructor-page-header {
     display: flex;
     justify-content: space-between;
@@ -64,7 +58,6 @@
     stroke-width: 2.5;
 }
 
-/* Stats Section */
 .instructor-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -122,7 +115,6 @@
     font-weight: 500;
 }
 
-/* Courses Grid */
 .instructor-courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,7 +122,6 @@
     margin: 0 auto;
 }
 
-/* Course Card */
 .instructor-course-card {
     background: white;
     border-radius: 12px;
@@ -147,7 +138,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Thumbnail */
 .instructor-card-thumbnail {
     width: 100%;
     height: 200px;
@@ -183,7 +173,6 @@
     z-index: 1;
 }
 
-/* Card Body */
 .instructor-card-body {
     padding: 20px 24px;
     flex: 1;
@@ -216,7 +205,6 @@
     overflow: hidden;
 }
 
-/* Meta Info */
 .instructor-card-meta {
     display: flex;
     align-items: center;
@@ -238,7 +226,6 @@
     opacity: 0.6;
 }
 
-/* Instructor Info */
 .instructor-card-instructor {
     display: flex;
     align-items: center;
@@ -277,7 +264,6 @@
     font-weight: 400;
 }
 
-/* Rating */
 .instructor-card-rating {
     display: flex;
     align-items: center;
@@ -301,7 +287,6 @@
     font-weight: 500;
 }
 
-/* Card Footer */
 .instructor-card-footer {
     display: flex;
     justify-content: space-between;
@@ -316,7 +301,6 @@
     color: #212529;
 }
 
-/* Action Buttons */
 .instructor-card-actions {
     display: flex;
     gap: 0.75rem;
@@ -350,9 +334,6 @@
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
 
 @media (max-width: 1024px) {
     .instructor-courses-grid {

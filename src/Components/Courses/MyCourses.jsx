@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Loader from '../Utilis/Loader';
 import './mycourses.css';
 
 const MyCourses = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [courses, setCourses] = useState([])
   const navigate = useNavigate()
 
@@ -24,25 +25,18 @@ const MyCourses = () => {
     getCourses();
   }, []);
   console.log(courses)
-
-  const handleViewCourse = (courseId) => {
-    console.log('View course:', courseId);
-    // Navigation logic would go here
-  };
-
-  const handleEditCourse = (courseId) => {
-    console.log('Edit course:', courseId);
-    // Navigation to edit page would go here
-  };
+  if(isLoading) {
+    return <Loader></Loader>
+  }
 
   return (
     <div className="instructor-courses-page">
       <div className="instructor-page-header">
         <div className="instructor-header-content">
           <h1 className="instructor-page-title">My Courses</h1>
-          <p className="instructor-page-subtitle">Manage and track your published courses</p>
+          <p className="instructor-page-subtitle">Manage your published courses</p>
         </div>
-        <button className="instructor-create-btn">
+        <button onClick={()=> navigate('/create-course')} className="instructor-create-btn">
           <svg className="instructor-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
           </svg>
@@ -73,19 +67,13 @@ const MyCourses = () => {
               <div className="instructor-card-price">${course.price}</div>
               <div className="instructor-card-actions">
                 <Link to={`/course/${course._id}`}>
-                  <button
-                    className="instructor-view-btn"
-                    onClick={() => handleViewCourse(course._id)}
-                  >
+                  <button className="instructor-view-btn" >
                     View
                   </button>
                 </Link>
 
                 <Link to={`/course/edit/${course._id}`}>
-                  <button
-                    className="instructor-edit-btn"
-                    onClick={() => handleEditCourse(course._id)}
-                  >
+                  <button className="instructor-edit-btn">
                     Edit
                   </button>
                 </Link>

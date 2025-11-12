@@ -3,6 +3,8 @@ import './App.css'
 import Login from './Components/Authentication/Login/Login'
 import Registration from './Components/Authentication/Register/Registration'
 import AllCourses from './Components/Courses/AllCourses'
+import CreateCourse from './Components/Courses/CreateCourse'
+import EditCourse from './Components/Courses/EditCourse'
 import MyCourses from './Components/Courses/MyCourses'
 import Home from './Components/Homepage/Home'
 import EditProfile from './Components/Profile/EditProfile'
@@ -33,6 +35,12 @@ const router = createBrowserRouter([
       },
       {
         path : 'my-courses', Component: MyCourses
+      },
+      {
+        path: 'create-course', Component : CreateCourse
+      }, 
+      {
+        path: 'course/:courseId', Component : EditCourse  
       }
     ]
   },
