@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Login from './Components/Authentication/Login/Login'
 import Registration from './Components/Authentication/Register/Registration'
+import CourseDetails from './Components/CourseDetails/CourseDetails'
 import AllCourses from './Components/Courses/AllCourses'
 import CreateCourse from './Components/Courses/CreateCourse'
 import EditCourse from './Components/Courses/EditCourse'
@@ -40,7 +41,10 @@ const router = createBrowserRouter([
         path: 'create-course', Component : CreateCourse
       }, 
       {
-        path: 'course/:courseId', Component : EditCourse  
+        path: 'course/:courseId', Component : CourseDetails  
+      },
+      {
+        path: 'edit-course/:courseId', Component : EditCourse
       }
     ]
   },

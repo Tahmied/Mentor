@@ -25,7 +25,7 @@ const MyCourses = () => {
     getCourses();
   }, []);
   console.log(courses)
-  if(isLoading) {
+  if (isLoading) {
     return <Loader></Loader>
   }
 
@@ -36,7 +36,7 @@ const MyCourses = () => {
           <h1 className="instructor-page-title">My Courses</h1>
           <p className="instructor-page-subtitle">Manage your published courses</p>
         </div>
-        <button onClick={()=> navigate('/create-course')} className="instructor-create-btn">
+        <button onClick={() => navigate('/create-course')} className="instructor-create-btn">
           <svg className="instructor-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
           </svg>
@@ -67,18 +67,16 @@ const MyCourses = () => {
               <div className="instructor-card-price">${course.price}</div>
               <div className="instructor-card-actions">
                 <Link to={`/course/${course._id}`}>
-                  <button className="instructor-view-btn" >
+                  <button className="instructor-view-btn" onClick={(e) => e.stopPropagation()}>
                     View
                   </button>
                 </Link>
 
-                <Link to={`/course/edit/${course._id}`}>
-                  <button className="instructor-edit-btn">
+                <Link to={`/edit-course/${course._id}`}>
+                  <button className="instructor-edit-btn" onClick={(e) => e.stopPropagation()}>
                     Edit
                   </button>
                 </Link>
-
-
               </div>
             </div>
           </div>

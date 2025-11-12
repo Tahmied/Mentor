@@ -2,11 +2,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loader from '../Utilis/Loader';
 import './course.css';
 
 export default function EditCourse() {
     const { courseId } = useParams();
     const navigate = useNavigate();
+    console.log(courseId)
 
     const [courseData, setCourseData] = useState({
         title: '',
@@ -150,11 +152,7 @@ export default function EditCourse() {
     if (isLoading) {
         return (
             <div className="course-form-container">
-                <div className="course-form-wrapper">
-                    <div className="loading-state">
-                        <p>Loading course data...</p>
-                    </div>
-                </div>
+                <Loader></Loader>
             </div>
         );
     }
