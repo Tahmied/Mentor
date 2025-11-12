@@ -1,21 +1,31 @@
-import { updateProfile } from 'firebase/auth';
-import { useContext, useState } from 'react';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Authentication/AuthContext';
-
 import Loader from '../Utilis/Loader';
 import './Profile.css';
 
 const EditProfile = () => {
-    const navigate = useNavigate()
-    const { user } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const { user, login } = useContext(AuthContext);
+
     const [formData, setFormData] = useState({
-        displayName: user.displayName,
-        photo: user.photoURL
+        fullName: '',
+        dpPath: ''
     });
-    const [isLoading, setIsLoading] = useState(false)
+    
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                fullName: user.fullName || '',
+                dpPath: user.dpPath || ''
+            });
+        }
+    }, [user]);
 
     const handleChange = (e) => {
         setFormData({
@@ -24,42 +34,66 @@ const EditProfile = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true)
-        updateProfile(user, {
-            displayName: formData.displayName,
-            photoURL: formData.photo,
-        })
-            .then(() => {
-                setIsLoading(false)
-                Swal.fire({
-                    title: 'Profile Updated Successfully',
-                    icon: 'success'
-                })
-            }).catch((err) => {
-                Swal.fire({
-                    title: 'Couldn\'t update your profile',
-                    icon: 'error',
-                    text: err
-                })
-            })
+        setIsLoading(true);
+
+        try {
+            const res = await axios.post(
+                `${import.meta.env.VITE_BACKEND}/api/v1/users/update-profile`,
+                {
+                    fullName: formData.fullName,
+                    dpPath: formData.dpPath
+                },
+                {
+                    withCredentials: true
+                }
+            );
+
+            const updatedUser = res.data.data;
+
+            login(
+                updatedUser.email,
+                updatedUser.fullName,
+                user.accessToken,
+                updatedUser.dpPath
+            );
+
+            setIsLoading(false);
+            Swal.fire({
+                title: 'Profile Updated Successfully',
+                icon: 'success'
+            });
+            navigate('/profile');
+
+        } catch (err) {
+            setIsLoading(false);
+            Swal.fire({
+                title: 'Couldn\'t update your profile',
+                icon: 'error',
+                text: err.response?.data?.message || err.message
+            });
+        }
     };
 
     if (isLoading) {
-        return <Loader></Loader>
+        return <Loader />;
+    }
+    
+    if (!user) {
+        return <Loader />;
     }
 
     return (
         <>
             <Helmet>
-                <title>Edit Profile | ToyTopia</title>
+                <title>Edit Profile | Mentor</title>
             </Helmet>
             <div className="profile-container">
                 <div className="profile-header">
                     <h1>Edit Profile</h1>
                     <div className="header-actions">
-                        <button onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')} className="cancel-btn">
+                        <button onClick={() => navigate(-1)} className="cancel-btn">
                             Cancel
                         </button>
                         <button className="save-btn" onClick={handleSubmit}>
@@ -73,15 +107,15 @@ const EditProfile = () => {
                         <div className="photo-edit-section">
                             <div className="photo-container">
                                 <img
-                                    src={formData.photo || '/default-avatar.png'}
+                                    src={formData.dpPath || '/assets/usericon.svg'}
                                     alt="Profile"
                                     className="profile-photo"
                                 />
                             </div>
                             <input
                                 type="url"
-                                name="photo"
-                                value={formData.photo}
+                                name="dpPath"
+                                value={formData.dpPath}
                                 onChange={handleChange}
                                 placeholder="Enter image URL"
                                 className="photo-url-input"
@@ -91,12 +125,12 @@ const EditProfile = () => {
 
                     <div className="form-section">
                         <div className="form-group">
-                            <label htmlFor="displayName">Display Name</label>
+                            <label htmlFor="fullName">Display Name</label>
                             <input
                                 type="text"
-                                id="displayName"
-                                name="displayName"
-                                value={formData.displayName}
+                                id="fullName"
+                                name="fullName"
+                                value={formData.fullName}
                                 onChange={handleChange}
                                 className="form-input"
                             />
@@ -106,7 +140,6 @@ const EditProfile = () => {
                 </form>
             </div>
         </>
-
     );
 };
 
