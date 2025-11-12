@@ -4,6 +4,8 @@ import Login from './Components/Authentication/Login/Login'
 import Registration from './Components/Authentication/Register/Registration'
 import AllCourses from './Components/Courses/AllCourses'
 import Home from './Components/Homepage/Home'
+import EditProfile from './Components/Profile/EditProfile'
+import MyProfile from './Components/Profile/MyProfile'
 import Root from './Root'
 
 const router = createBrowserRouter([
@@ -21,6 +23,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/register', Component : Registration
+      },
+      {
+        path: '/profile', Component : MyProfile
+      },
+      {
+        path: 'edit-profile', Component : EditProfile
       }
     ]
   },
