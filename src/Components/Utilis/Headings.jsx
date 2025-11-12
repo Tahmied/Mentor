@@ -1,4 +1,4 @@
-import './headings.css';
+import './Headings.css';
 const Headings = ({ sectionName, Title, Desc }) => {
     return (
         <section className="heading-section">
