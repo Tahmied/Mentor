@@ -83,7 +83,7 @@
     font-weight: 500;
 }
 
-.course-title {
+.course-title-detail {
     font-size: 36px;
     color: #000000;
     font-weight: 700;
@@ -379,7 +379,7 @@
         position: static;
     }
 
-    .course-title {
+    .course-title-detail {
         font-size: 28px;
     }
 
@@ -406,7 +406,7 @@
         padding: 25px 20px;
     }
 
-    .course-title {
+    .course-title-detail {
         font-size: 24px;
     }
 

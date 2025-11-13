@@ -113,7 +113,7 @@ const CourseDetails = () => {
                 <span className="breadcrumb-item">{course.category}</span>
               </div>
 
-              <h1 className="course-title">{course.title}</h1>
+              <h1 className="course-title-detail">{course.title}</h1>
 
               <p className="course-description">{course.description}</p>
 
