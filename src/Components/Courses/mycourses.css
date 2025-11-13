@@ -544,3 +544,112 @@
     width: 20px;
     height: 20px;
 }
+
+.instructor-thumbnail-delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(239, 68, 68, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: scale(0.9);
+    z-index: 2;
+}
+
+.instructor-course-card:hover .instructor-thumbnail-delete-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.instructor-thumbnail-delete-btn:hover:not(:disabled) {
+    background: rgba(220, 38, 38, 0.95);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.instructor-thumbnail-delete-btn:active {
+    transform: scale(0.95);
+}
+
+.instructor-thumbnail-delete-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.instructor-thumbnail-delete-btn.deleting {
+    background: rgba(107, 114, 128, 0.95);
+}
+
+.instructor-delete-icon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.delete-spinner-small {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.instructor-card-thumbnail {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .instructor-thumbnail-delete-btn {
+        opacity: 1;
+        transform: scale(1);
+        width: 32px;
+        height: 32px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .instructor-delete-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .delete-spinner-small {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructor-thumbnail-delete-btn {
+        width: 30px;
+        height: 30px;
+        top: 6px;
+        right: 6px;
+    }
+
+    .instructor-delete-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
