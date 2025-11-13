@@ -490,3 +490,55 @@ body.dark-mode .instructor-card-name {
 body.dark-mode .learning-outcomes {
     background-color: #1e293b;
 }
+
+body.dark-mode .watch-container {
+    background-color: #0f172a;
+}
+
+body.dark-mode .video-section-course {
+    background-color: #1e293b;
+}
+
+body.dark-mode .video-title {
+    color: white;
+}
+
+body.dark-mode .lessons-sidebar {
+    background-color: #1e293b;
+}
+
+body.dark-mode .sidebar-header h2 {
+    color: #ced0d3;
+}
+
+body.dark-mode .progress-info span {
+    color: #ced0d3;
+}
+
+body.dark-mode .lesson-details h3 {
+    color: #ced0d3;
+}
+
+body.dark-mode .lesson-item-watch.active {
+    background: #1a4575;
+}
+
+body.dark-mode .lesson-item-watch:hover {
+    background-color: #1a4575;
+}
+
+body.dark-mode .mark-complete-btn {
+    background: #1e293b;
+    color: #ced0d3;
+}
+
+body.dark-mode .mark-complete-btn:hover {
+    border: 1px solid white;
+    transform: translateY(-2px);
+}
+
+body.dark-mode .control-btn {
+    background: #1e3a5f;
+    color: #fcfcfc;
+    border: none;
+}
