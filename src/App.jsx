@@ -7,6 +7,7 @@ import AllCourses from './Components/Courses/AllCourses'
 import CreateCourse from './Components/Courses/CreateCourse'
 import EditCourse from './Components/Courses/EditCourse'
 import MyCourses from './Components/Courses/MyCourses'
+import Dashboard from './Components/Dashboard/Dashboard'
 import Home from './Components/Homepage/Home'
 import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
@@ -62,6 +63,9 @@ const router = createBrowserRouter([
       },
       {
         path: '*', Component: ErrorPage
+      },
+      {
+        path: 'dashboard', element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
       }
     ]
   },

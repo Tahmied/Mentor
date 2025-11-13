@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { auth } from '../../Utilis/firebase.init';
@@ -108,9 +109,10 @@ const Login = () => {
 
     return (
         <>
-            {/* <Helmet>
-                <title>Sign In | ToyTopia</title>
-            </Helmet> */}
+            <Helmet>
+                <title>Sign In | Mentor</title>
+            </Helmet>
+            
             <section className="login">
                 <div className="login-container">
                     <div className="login-left">

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import EmptyState from "../Utilis/EmptyState";
 import EnrolledCourse from "./EnrolledCourse";
@@ -13,32 +14,36 @@ const MyEnrollments = () => {
     const enrollmentsData = data.data
     return (
         <>
+
+            <Helmet>
+                <title>My Enrollments | Mentor</title>
+            </Helmet>
             <section className="courses">
 
                 {enrollmentsData.length === 0 ? (
-                <EmptyState title={'No Enrolled Courses Found'} text={'Start Learning by enrolling our courses'} navigateBtnTxt={'Enroll Your first Course'} navigationLink={'/courses'}></EmptyState>
-                ): (
-                <div className="courses-container">
-                    {
+                    <EmptyState title={'No Enrolled Courses Found'} text={'Start Learning by enrolling our courses'} navigateBtnTxt={'Enroll Your first Course'} navigationLink={'/courses'}></EmptyState>
+                ) : (
+                    <div className="courses-container">
+                        {
 
-                        enrollmentsData.map(course => {
-                            return <EnrolledCourse
-                                key={course._id}
-                                thumbnail={course.thumbnail}
-                                category={course.category}
-                                title={course.title}
-                                lessons={course.lessons}
-                                instructorName={course.instructor.fullName}
-                                instructorImg={course.instructor.dpPath}
-                                instructorBio={course.instructor.title}
-                                ratings={getRandomRating()}
-                                price={course.price}
-                                link={course._id}
-                            />
-                        })
+                            enrollmentsData.map(course => {
+                                return <EnrolledCourse
+                                    key={course._id}
+                                    thumbnail={course.thumbnail}
+                                    category={course.category}
+                                    title={course.title}
+                                    lessons={course.lessons}
+                                    instructorName={course.instructor.fullName}
+                                    instructorImg={course.instructor.dpPath}
+                                    instructorBio={course.instructor.title}
+                                    ratings={getRandomRating()}
+                                    price={course.price}
+                                    link={course._id}
+                                />
+                            })
 
-                    }
-                </div>
+                        }
+                    </div>
                 )}
 
 

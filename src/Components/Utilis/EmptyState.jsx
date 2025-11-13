@@ -14,9 +14,9 @@ const EmptyState = ({title, text, navigateBtnTxt, navigationLink}) => {
                 {text}
             </p>
             <button onClick={() => navigate(`${navigationLink}`)} className="empty-state-btn">
-                <svg className="empty-state-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                {/* <svg className="empty-state-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                </svg>
+                </svg> */}
                 {navigateBtnTxt}
             </button>
         </div>

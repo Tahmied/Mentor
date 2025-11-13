@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 import { auth } from '../../Utilis/firebase.init';
 import Loader from '../../Utilis/Loader';
@@ -187,9 +188,10 @@ const Registration = () => {
 
     return (
         <>
-            {/* <Helmet>
-            <title>Create Account | ToyTopia</title>
-        </Helmet> */}
+            <Helmet>
+                <title>Create Account | Mentor</title>
+            </Helmet>
+
             <section className="registration-sec">
                 <div className="register-container">
                     <div className="register-left">
