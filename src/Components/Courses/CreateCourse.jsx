@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './course.css';
 
 export default function CreateCourse() {
+  const navigate = useNavigate()
   const [courseData, setCourseData] = useState({
     title: '',
     thumbnail: '',
@@ -89,10 +91,11 @@ export default function CreateCourse() {
         text: 'Your course has been created successfully',
         icon: 'success',
         showConfirmButton: true,
-        timer: 2000
-      });
+        timer: 1000
+      }).then(()=>{
+        navigate('/my-courses')
+      })
 
-      // Reset form
       setCourseData({
         title: '',
         thumbnail: '',
@@ -232,7 +235,7 @@ export default function CreateCourse() {
 
             <div className="lessons-container">
               {lessons.map((lesson, index) => (
-                <div key={index} className="lesson-item">
+                <div key={index} className="lesson-item-create">
                   <div className="lesson-header">
                     <span className="lesson-number">Lesson {index + 1}</span>
                     {lessons.length > 1 && (
@@ -276,7 +279,6 @@ export default function CreateCourse() {
             </div>
           </div>
 
-          {/* Submit Button */}
           <div className="form-actions">
             <button
               type="submit"
