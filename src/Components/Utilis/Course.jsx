@@ -4,7 +4,7 @@ import '../Homepage/courses.css';
 const Course = ({ thumbnail, category, title, lessons, instructorName, instructorImg, instructorBio, ratings, price, link }) => {
     const navigate = useNavigate()
     return (
-        <div onClick={()=> navigate(link)} className="course-item">
+        <div data-aos-offset="100" data-aos-duration='1000' data-aos="fade-up" onClick={()=> navigate(link)} className="course-item">
             <div className="course-thumbnail">
                 <img src={ thumbnail } alt="WordPress Development" />
             </div>
