@@ -100,16 +100,6 @@
     color: #c0392b;
 }
 
-.dropdown-item::before {
-    content: "";
-    width: 4px;
-    height: 0;
-    background: #3b82f6;
-    margin-right: 12px;
-    border-radius: 2px;
-    transition: height 0.2s ease;
-}
-
 .dropdown-item:hover::before {
     height: 16px;
 }

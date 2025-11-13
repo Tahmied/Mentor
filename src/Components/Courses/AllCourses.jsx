@@ -23,9 +23,9 @@ const AllCourses = () => {
                             category={course.category}
                             title={course.title}
                             lessons={course.lessons}
-                            instructorName={course.instructor.fullName}
-                            instructorImg={course.instructor.dpPath}
-                            instructorBio={course.instructor.title}
+                            instructorName={course.instructor?.fullName || "Unknown Instructor"}
+                            instructorImg={course.instructor?.dpPath || "/default-avatar.png"}
+                            instructorBio={course.instructor?.title || ""}
                             ratings={getRandomRating()}
                             price={course.price}
                             link={`/course/${course._id}`}

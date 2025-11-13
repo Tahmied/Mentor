@@ -89,7 +89,7 @@ const Watch = () => {
   return (
     <div className="watch-container">
       <div className="watch-content">
-        <div className="video-section">
+        <div className="video-section-course">
           {!courseCompleted ? (
             <>
               <div className="video-wrapper">

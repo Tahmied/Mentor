@@ -5,8 +5,8 @@ import Headings from '../Utilis/Headings';
 import './courses.css';
 
 function getRandomRating() {
-  const rating = Math.random() * (5 - 3) + 3; 
-  return Math.round(rating * 10) / 10;
+    const rating = Math.random() * (5 - 3) + 3;
+    return Math.round(rating * 10) / 10;
 }
 
 
@@ -27,9 +27,9 @@ const Courses = () => {
                             category={course.category}
                             title={course.title}
                             lessons={course.lessons}
-                            instructorName={course.instructor.fullName}
-                            instructorImg={course.instructor.dpPath}
-                            instructorBio={course.instructor.title}
+                            instructorName={course.instructor?.fullName || "Unknown Instructor"}
+                            instructorImg={course.instructor?.dpPath || "/default-avatar.png"}
+                            instructorBio={course.instructor?.title || ""}
                             ratings={getRandomRating()}
                             price={course.price}
                             link={`/course/${course._id}`}

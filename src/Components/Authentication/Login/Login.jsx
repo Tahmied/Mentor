@@ -21,14 +21,13 @@ const Login = () => {
     function handleGoogleLogin() {
         setLoading(true)
         signInWithPopup(auth, googleAuthProvider)
-            .then((res) => {
-                console.log(res.user)
+            .then(async (res) => {
                 const email = res.user.email
                 const uid = res.user.uid
                 const name = res.user.displayName
                 const dpPath = res.user.photoURL
                 const accessToken = res.user.accessToken
-                googleLogin(email, name, accessToken, dpPath, uid)
+                await googleLogin(email, name, accessToken, dpPath, uid)
                 setLoading(false)
                 Swal.fire({
                     title: 'Login Successfull',
@@ -68,8 +67,25 @@ const Login = () => {
                 }, withCredentials: true
             })
             login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
+            setLoading(false)
+            Swal.fire({
+                title: 'Login Successfull',
+                text: 'You have been logged in properly',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                navigate('/')
+            })
         } catch (error) {
             console.log(error.response.data.message)
+            setLoading(false)
+            Swal.fire({
+                title: 'Login Faild',
+                text: 'Account is not registered or wrong email/pass',
+                icon: 'error',
+                showConfirmButton: 'false'
+            });
             setLoading(false)
         }
     };
