@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { auth } from '../../Utilis/firebase.init';
 import Loader from '../../Utilis/Loader';
@@ -12,6 +12,9 @@ const googleAuthProvider = new GoogleAuthProvider()
 
 const Login = () => {
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -36,7 +39,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1000
                 }).then(() => {
-                    navigate('/')
+                    navigate(from, { replace: true });
                 })
             })
             .catch(() => {
@@ -75,7 +78,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1000
             }).then(() => {
-                navigate('/')
+                navigate(from, { replace: true });
             })
         } catch (error) {
             console.log(error.response.data.message)
@@ -183,7 +186,7 @@ const Login = () => {
                             </div>
 
                             <div className="signup-link">
-                                Don't have an account? <Link to={'/register'}>Sign up here</Link>
+                                Don't have an account? <Link to={'/register'} state={{ from: location.state?.from }}>Sign up here</Link>
                             </div>
                         </form>
                     </div>

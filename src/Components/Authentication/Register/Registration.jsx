@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -22,6 +22,9 @@ const Registration = () => {
     });
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -106,7 +109,7 @@ const Registration = () => {
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                navigate('/');
+                navigate(from, { replace: true });;
             });
         } catch (error) {
             console.log(error);
@@ -119,7 +122,7 @@ const Registration = () => {
             });
         }
     };
-    
+
 
     function handleGoogleLogin() {
         setLoading(true);
@@ -142,7 +145,7 @@ const Registration = () => {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    navigate('/');
+                    navigate(from, { replace: true });;
                 });
             })
             .catch((error) => {
