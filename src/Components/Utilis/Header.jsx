@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../Authentication/AuthContext';
-import HeaderDropdown from './HeaderDropdown'; // Add this import
 import './dropdown.css';
+import HeaderDropdown from './HeaderDropdown';
+import ThemeToggle from './ThemeToggle';
 
-const Header = () => {
+const Header = ({isDarkMode, setIsDarkMode}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -121,6 +122,7 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
+            <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}></ThemeToggle>
             {isLoggedIn ? (
               <div className="profile-wrapper">
                 <div onClick={toggleDropdown} className="profile-nav desktop-profile">

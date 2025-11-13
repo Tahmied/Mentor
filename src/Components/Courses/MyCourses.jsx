@@ -137,7 +137,7 @@ const MyCourses = () => {
                   <div className="instructor-card-price">${course.price}</div>
                   <div className="instructor-card-actions">
                     <Link to={`/course/${course._id}`}>
-                      <button className="instructor-view-btn" onClick={(e) => e.stopPropagation()}>
+                      <button className="instructor-edit-btn" onClick={(e) => e.stopPropagation()}>
                         View
                       </button>
                     </Link>

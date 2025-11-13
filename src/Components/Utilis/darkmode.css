@@ -1,0 +1,297 @@
+/* Dark Mode Styles - darkmode.css */
+/* Only applies when body has 'dark-mode' class */
+
+body.dark-mode .learnova-header {
+    background: rgb(0 0 0) !important;
+}
+
+body.dark-mode .nav-link {
+    color: white !important;
+}
+
+body.dark-mode .hero-section {
+    background: linear-gradient(180deg, #060606 0%, #152e5a 100%);
+}
+
+body.dark-mode .hero-content h1 {
+    color: white;
+}
+
+body.dark-mode .hero-content p {
+    color: white;
+}
+
+/* Whole Site Container */
+body.dark-mode .whole-site-container {
+    background: #0f172a !important;
+}
+
+/* Courses Section */
+body.dark-mode .courses-container {
+    background: transparent !important;
+}
+
+body.dark-mode .course-item {
+    background: #1e293b !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .course-item:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .course-thumbnail {
+    background: #334155 !important;
+}
+
+body.dark-mode .course-category {
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #60a5fa !important;
+}
+
+body.dark-mode .course-title {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .course-meta {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .instructor-name {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .instructor-title {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .star {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .star.empty {
+    color: #475569 !important;
+}
+
+body.dark-mode .rating-text {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .course-price {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .price-free {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .view-details {
+    color: #ced0d3 !important;
+}
+
+body.dark-mode .view-details:hover {
+    color: #60a5fa !important;
+}
+
+/* Headings Section */
+body.dark-mode .heading-section {
+    background: #0f172a !important;
+}
+
+body.dark-mode .heading-badge {
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #60a5fa !important;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25) !important;
+}
+
+body.dark-mode .heading-heading {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .heading-description {
+    color: #ced0d3 !important;
+}
+
+body.dark-mode .slider-section {
+    background-color: #0f172a !important;
+}
+
+/* CTA Button */
+body.dark-mode .all-cta-btn {
+    background: #1e293b !important;
+    color: #60a5fa !important;
+    border: 2px solid #60a5fa !important;
+}
+
+body.dark-mode .all-cta-btn:hover {
+    background: #60a5fa !important;
+    color: #0f172a !important;
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4) !important;
+}
+
+/* Features Container */
+body.dark-mode .features-container {
+    background-color: #0f172a !important;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-left: 0;
+}
+
+body.dark-mode .feature-card {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode .feature-title {
+    color: white !important;
+}
+
+body.dark-mode .feature-description {
+    color: #ced0d3 !important;
+}
+
+/* CTA Section */
+body.dark-mode .cta-section {
+    background-color: #0f172a !important;
+}
+
+body.dark-mode .meta-item {
+    color: #ced0d3 !important;
+}
+
+body.dark-mode .stars {
+    color: white !important;
+}
+
+/* Footer */
+body.dark-mode .footer {
+    background-color: #182135 !important;
+}
+
+body.dark-mode .filter-label {
+    color: #ced0d3 !important;
+}
+
+body.dark-mode .category-select {
+    background-color: #1e293b !important;
+    border: transparent;
+    color: #ced0d3;
+}
+
+body.dark-mode .results-count {
+    color: #ced0d3;
+}
+
+body.dark-mode .dashboard-card {
+    background-color: #1e293b;
+}
+
+body.dark-mode .dashboard-header p {
+    color: #ced0d3;
+}
+
+body.dark-mode .dashboard-card p {
+    color: #ced0d3;
+}
+
+body.dark-mode .dashboard-card h3 {
+    color: white;
+}
+
+body.dark-mode .instructor-page-title {
+    color: white;
+}
+
+body.dark-mode .instructor-page-subtitle {
+    color: #ced0d3;
+}
+
+/* Instructor Course Card Dark Mode */
+body.dark-mode .instructor-courses-grid {
+    background: transparent !important;
+}
+
+body.dark-mode .instructor-course-card {
+    background: #1e293b !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .instructor-course-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .instructor-card-thumbnail {
+    background: #334155 !important;
+}
+
+body.dark-mode .instructor-thumbnail-delete-btn {
+    background: rgba(239, 68, 68, 0.9) !important;
+}
+
+body.dark-mode .instructor-thumbnail-delete-btn:hover {
+    background: rgba(220, 38, 38, 1) !important;
+}
+
+body.dark-mode .instructor-card-category {
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #60a5fa !important;
+}
+
+body.dark-mode .instructor-card-title {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .instructor-card-meta {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .instructor-meta-item {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .instructor-meta-item svg {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .instructor-card-body {
+    background: transparent !important;
+}
+
+body.dark-mode .instructor-card-price {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .instructor-view-btn {
+    color: #ced0d3 !important;
+    background: transparent !important;
+    border-color: #60a5fa !important;
+}
+
+body.dark-mode .instructor-view-btn:hover {
+    color: #60a5fa !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+body.dark-mode .instructor-edit-btn {
+    background: #1e293b !important;
+    color: #60a5fa !important;
+    border: 2px solid #60a5fa !important;
+}
+
+body.dark-mode .instructor-edit-btn:hover {
+    background: #60a5fa !important;
+    color: #0f172a !important;
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4) !important;
+}
+
+body.dark-mode .instructor-card-actions {
+    background: transparent !important;
+}
+
+body.dark-mode .instructor-card-footer {
+    background: transparent !important;
+    border-top-color: #334155 !important;
+}
+
+body.dark-mode .instructor-delete-icon {
+    color: white !important;
+}

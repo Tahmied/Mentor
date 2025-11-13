@@ -13,6 +13,7 @@ import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
 import ErrorPage from './Components/Utilis/ErrorPage'
+import Loader from './Components/Utilis/Loader'
 import PrivateRoutes from './Components/Utilis/PrivateRoutes'
 import Watch from './Components/Watch/Watch'
 import Root from './Root'
@@ -75,7 +76,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider   hydrateFallback={<Loader></Loader>} router={router}></RouterProvider>
     </>
   )
 }
