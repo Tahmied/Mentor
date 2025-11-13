@@ -94,7 +94,7 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
   };
 
   const handleStartFreeClick = () => {
-    console.log('Start Free clicked');
+    
   };
 
   const toggleDropdown = () => {

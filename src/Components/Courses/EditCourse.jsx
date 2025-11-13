@@ -8,7 +8,6 @@ import './course.css';
 export default function EditCourse() {
     const { courseId } = useParams();
     const navigate = useNavigate();
-    console.log(courseId)
 
     const [courseData, setCourseData] = useState({
         title: '',
@@ -159,7 +158,7 @@ export default function EditCourse() {
 
     return (
         <div className="course-form-container">
-            <div style={{maxWidth:'900px',width:'80%',margin:'0 auto'}} className="profile-header">
+            <div style={{maxWidth:'900px',width:'80%',margin:'0 auto', borderBottom:'none'}} className="profile-header">
                 <h1></h1>
                 <div className="profile-header-actions">
                     <button onClick={() => navigate('/my-courses')} className="cancel-btn">

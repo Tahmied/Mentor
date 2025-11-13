@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
                     }, withCredentials: true
                 }
             )
-            console.log('checking user', res)
+            
             // jodi thake login kor
             if (res?.data?.data) {
                 try {
@@ -67,12 +67,12 @@ const AuthProvider = ({ children }) => {
                     })
                     login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
                 } catch (error) {
-                    console.log(error.response.data.message)
+                    
                 }
             }
 
         } catch (error) {
-            console.log('Error checking user:', error)
+           
             // jodi user na thake register kor
             try {
                 const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/register`,
@@ -83,8 +83,7 @@ const AuthProvider = ({ children }) => {
                         }, withCredentials: true
                     }
                 )
-                console.log(res?.data?.data)
-                console.log(res)
+                
                 try {
                     const loginRes = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/login`, { "email": email, "password": password }, {
                         headers: {
@@ -93,10 +92,10 @@ const AuthProvider = ({ children }) => {
                     })
                     login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
                 } catch (error) {
-                    console.log(error.response.data.message)
+                    
                 }
             } catch (error) {
-                console.log(error)
+                
             }
         }
     }
@@ -109,9 +108,9 @@ const AuthProvider = ({ children }) => {
                 }, withCredentials: true
             })
             setUser(null)
-            console.log(res)
+           
         } catch (error) {
-            console.log(error)
+            
         }
     }
 

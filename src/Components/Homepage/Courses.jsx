@@ -13,7 +13,6 @@ function getRandomRating() {
 const Courses = () => {
     const fetchData = useLoaderData()
     const coursesData = fetchData.data
-    console.log(coursesData)
     const courses = coursesData.slice(0, 6);
     return (
         <section className="courses">

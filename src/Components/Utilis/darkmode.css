@@ -172,9 +172,10 @@ body.dark-mode .filter-label {
 }
 
 body.dark-mode .category-select {
-    background-color: #1e293b !important;
+    background-color: #3b475a;
     border: transparent;
     color: #ced0d3;
+    border-color: #60a5fa !important;
 }
 
 body.dark-mode .results-count {
@@ -294,4 +295,121 @@ body.dark-mode .instructor-card-footer {
 
 body.dark-mode .instructor-delete-icon {
     color: white !important;
+}
+
+body.dark-mode .course-form-container {
+    background-color: #0f172a;
+}
+
+/* Create Course Form Dark Mode */
+body.dark-mode .course-form-container {
+    background-color: #0f172a !important;
+}
+
+body.dark-mode .course-form-wrapper {
+    background-color: #1e293b !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header */
+body.dark-mode .course-form-header {
+    background-color: #1e3a5f !important;
+}
+
+body.dark-mode .course-form-title {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode .course-form-subtitle {
+    color: #cbd5e1 !important;
+}
+
+/* Form Sections */
+body.dark-mode .section-title {
+    color: #f1f5f9 !important;
+    border-bottom-color: #334155 !important;
+}
+
+/* Form Groups */
+body.dark-mode .form-label {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .form-input:focus,
+body.dark-mode .form-textarea:focus {
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2) !important;
+}
+
+body.dark-mode .form-input::placeholder,
+body.dark-mode .form-textarea::placeholder {
+    color: #64748b !important;
+}
+
+/* Select Wrapper */
+body.dark-mode .select-wrapper {
+    background-color: #0f172a !important;
+    border-radius: 8px;
+}
+
+body.dark-mode .select-icon {
+    color: #94a3b8 !important;
+}
+
+/* Lessons Container */
+body.dark-mode .lesson-item-create {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .lesson-number {
+    color: #60a5fa !important;
+}
+
+/* Buttons */
+body.dark-mode .btn-add-lesson {
+    color: #60a5fa !important;
+    background-color: #1e293b !important;
+    border-color: #60a5fa !important;
+}
+
+body.dark-mode .btn-add-lesson:hover {
+    background-color: #60a5fa !important;
+    color: #0f172a !important;
+}
+
+body.dark-mode .btn-remove {
+    color: #f87171 !important;
+    background-color: transparent !important;
+    border-color: #f87171 !important;
+}
+
+body.dark-mode .btn-remove:hover {
+    background-color: #f87171 !important;
+    color: #0f172a !important;
+}
+
+/* Form Actions */
+body.dark-mode .form-actions {
+    border-top-color: #334155 !important;
+}
+
+/* Loading State */
+body.dark-mode .loading-state p {
+    color: #94a3b8 !important;
+}
+
+/* Focus States */
+body.dark-mode button:focus-visible,
+body.dark-mode input:focus-visible,
+body.dark-mode textarea:focus-visible,
+body.dark-mode select:focus-visible {
+    outline-color: #60a5fa !important;
 }

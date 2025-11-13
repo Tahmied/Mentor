@@ -134,7 +134,7 @@ const Registration = () => {
                 navigate(from, { replace: true });;
             });
         } catch (error) {
-            console.log(error);
+            
             setLoading(false);
             Swal.fire({
                 title: 'Registration Failed',
@@ -150,7 +150,7 @@ const Registration = () => {
         setLoading(true);
         signInWithPopup(auth, googleAuthProvider)
             .then((res) => {
-                console.log(res.user);
+                
                 const email = res.user.email;
                 const uid = res.user.uid;
                 const name = res.user.displayName;
@@ -171,7 +171,7 @@ const Registration = () => {
                 });
             })
             .catch((error) => {
-                console.log(error);
+                
                 Swal.fire({
                     title: 'Registration Failed',
                     text: 'Something went wrong with Google registration',

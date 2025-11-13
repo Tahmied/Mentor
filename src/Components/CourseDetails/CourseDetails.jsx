@@ -50,7 +50,7 @@ const CourseDetails = () => {
         timer: 1000
       }).then(() => navigate('/my-enrollments'))
     } catch (error) {
-      console.log(error)
+      
     }
   }
 
@@ -62,9 +62,9 @@ const CourseDetails = () => {
           { withCredentials: true }
         );
         setIsEnrolled(res.data.data.isEnrolled);
-        console.log(res.data.data.isEnrolled);
+        
       } catch (error) {
-        console.log(error);
+        
       }
     };
 

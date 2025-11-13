@@ -7,7 +7,7 @@ import './Profile.css';
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext)
-    console.log(user)
+
 
     if (!user) {
         return <div className="profile-container">

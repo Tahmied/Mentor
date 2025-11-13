@@ -82,7 +82,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
         } catch (error) {
-            console.log(error.response.data.message)
+           
             setLoading(false)
             Swal.fire({
                 title: 'Login Faild',
