@@ -12,6 +12,7 @@ import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
 import ErrorPage from './Components/Utilis/ErrorPage'
+import PrivateRoutes from './Components/Utilis/PrivateRoutes'
 import Watch from './Components/Watch/Watch'
 import Root from './Root'
 
@@ -20,40 +21,44 @@ const router = createBrowserRouter([
     path: '/', Component: Root,
     children: [
       {
-        index: true, Component: Home, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
-      }, 
-      {
-        path: '/courses', Component : AllCourses, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
-      }, 
-      {
-        path: '/login', Component : Login
+        index: true, Component: Home, loader: () => fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
       },
       {
-        path: '/register', Component : Registration
+        path: '/courses', Component: AllCourses, loader: () => fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/getAllCourses`)
       },
       {
-        path: '/profile', Component : MyProfile
+        path: '/login', Component: Login
       },
       {
-        path: 'edit-profile', Component : EditProfile
+        path: '/register', Component: Registration
       },
       {
-        path : 'my-courses', Component: MyCourses
+        path: '/profile', element: <PrivateRoutes><MyProfile></MyProfile></PrivateRoutes>
       },
       {
-        path: 'create-course', Component : CreateCourse
-      }, 
-      {
-        path: 'course/:courseId', Component : CourseDetails  
+        path: 'edit-profile', element: <PrivateRoutes><EditProfile></EditProfile></PrivateRoutes>
       },
       {
-        path: 'edit-course/:courseId', Component : EditCourse
-      }, 
+        path: 'my-courses',
+        element: <PrivateRoutes><MyCourses /></PrivateRoutes>
+      },
       {
-        path: 'my-enrollments', Component: MyEnrollments, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/my-enrollments`, {method:'GET', credentials:'include'})
-      }, 
+        path: 'create-course',
+        element: <PrivateRoutes><CreateCourse /></PrivateRoutes>
+      },
       {
-        path: '/watch/:courseId', Component: Watch
+        path: 'course/:courseId',
+        element: <PrivateRoutes><CourseDetails /></PrivateRoutes>
+      },
+      {
+        path: 'edit-course/:courseId',
+        element: <PrivateRoutes><EditCourse /></PrivateRoutes>
+      },
+      {
+        path: 'my-enrollments', element: <PrivateRoutes><MyEnrollments></MyEnrollments></PrivateRoutes>, loader: () => fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/my-enrollments`, { method: 'GET', credentials: 'include' })
+      },
+      {
+        path: '/watch/:courseId', element : <PrivateRoutes><Watch></Watch></PrivateRoutes>
       },
       {
         path: '*', Component: ErrorPage
