@@ -8,6 +8,7 @@ import CreateCourse from './Components/Courses/CreateCourse'
 import EditCourse from './Components/Courses/EditCourse'
 import MyCourses from './Components/Courses/MyCourses'
 import Home from './Components/Homepage/Home'
+import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
 import Root from './Root'
@@ -45,6 +46,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'edit-course/:courseId', Component : EditCourse
+      }, 
+      {
+        path: 'my-enrollments', Component: MyEnrollments, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/my-enrollments`, {method:'GET', credentials:'include'})
       }
     ]
   },
