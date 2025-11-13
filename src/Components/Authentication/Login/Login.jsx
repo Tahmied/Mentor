@@ -70,6 +70,13 @@ const Login = () => {
                     'Content-Type': 'application/json'
                 }, withCredentials: true
             })
+            const accessToken = loginRes.data.data.accessToken
+            const refreshToken = loginRes.data.data.refreshToken
+
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
+
+
             login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
             setLoading(false)
             Swal.fire({
@@ -82,7 +89,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
         } catch (error) {
-           
+
             setLoading(false)
             Swal.fire({
                 title: 'Login Faild',
@@ -112,7 +119,7 @@ const Login = () => {
             <Helmet>
                 <title>Sign In | Mentor</title>
             </Helmet>
-            
+
             <section className="login">
                 <div className="login-container">
                     <div className="login-left">

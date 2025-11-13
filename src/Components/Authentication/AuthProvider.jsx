@@ -9,9 +9,11 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const checkAuth = async () => {
+            const accessToken = localStorage.getItem('accessToken');
             try {
                 const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/v1/users/me`, {
-                    withCredentials: true
+                    withCredentials: true,
+                    'Authorization': `Bearer ${accessToken}`
                 });
                 const userData = {
                     email: res.data.data.email,

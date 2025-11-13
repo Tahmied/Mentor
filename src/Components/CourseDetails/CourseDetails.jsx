@@ -37,9 +37,11 @@ const CourseDetails = () => {
 
   async function enrollCourse() {
     try {
+      const accessToken = localStorage.getItem('accessToken');
       await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/course/${courseId}/enroll`, {}, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
         }, withCredentials: true
       })
       Swal.fire({
