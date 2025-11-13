@@ -12,7 +12,6 @@ function getRandomRating() {
 const MyEnrollments = () => {
     const data = useLoaderData()
     const enrollmentsData = data.data
-    console.log(enrollmentsData)
     return (
         <>
 
