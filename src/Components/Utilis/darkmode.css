@@ -562,3 +562,83 @@ body.dark-mode .photo-url-input::placeholder {
 body.dark-mode .form-group label {
     color: #ced0d3;
 }
+
+body.dark-mode .dropdown-menu {
+    background: #1e293b;
+}
+
+body.dark-mode .user-name {
+    color: #ced0d3;
+}
+
+body.dark-mode .dropdown-item {
+    color: #ced0d3;
+}
+
+body.dark-mode .completion-card {
+    background: #1e293b;
+}
+
+body.dark-mode .completion-card h2 {
+    color: white;
+}
+
+body.dark-mode .completion-card p {
+    color: #ced0d3;
+}
+
+body.dark-mode .login {
+    background-color: #0f172a;
+}
+
+body.dark-mode .login-container {
+    background-color: #1e293b;
+}
+
+body.dark-mode .login-title {
+    color: white;
+}
+
+body.dark-mode .login-subtitle {
+    color: #ced0d3;
+}
+
+body.dark-mode .divider span {
+    background: #1e293b;
+    color: #ced0d3;
+}
+
+body.dark-mode .signup-link {
+    color: #ced0d3;
+}
+
+body.dark-mode .registration-sec {
+    background-color: #0f172a;
+}
+
+/* asdfasdf */
+
+
+body.dark-mode .login {
+    background-color: #0f172a;
+}
+
+body.dark-mode .register-container {
+    background-color: #1e293b;
+}
+
+body.dark-mode .register-title {
+    color: white;
+}
+
+body.dark-mode .register-subtitle {
+    color: #ced0d3;
+}
+
+body.dark-mode .terms label {
+    color: #ced0d3;
+}
+
+body.dark-mode .login-link {
+    color: #ced0d3;
+}
