@@ -11,6 +11,7 @@ import Home from './Components/Homepage/Home'
 import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
+import ErrorPage from './Components/Utilis/ErrorPage'
 import Watch from './Components/Watch/Watch'
 import Root from './Root'
 
@@ -53,6 +54,9 @@ const router = createBrowserRouter([
       }, 
       {
         path: '/watch/:courseId', Component: Watch
+      },
+      {
+        path: '*', Component: ErrorPage
       }
     ]
   },
