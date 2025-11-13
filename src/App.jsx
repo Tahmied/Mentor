@@ -11,6 +11,7 @@ import Home from './Components/Homepage/Home'
 import MyEnrollments from './Components/MyEnrollments/MyEnrollments'
 import EditProfile from './Components/Profile/EditProfile'
 import MyProfile from './Components/Profile/MyProfile'
+import Watch from './Components/Watch/Watch'
 import Root from './Root'
 
 const router = createBrowserRouter([
@@ -49,6 +50,9 @@ const router = createBrowserRouter([
       }, 
       {
         path: 'my-enrollments', Component: MyEnrollments, loader: ()=> fetch(`${import.meta.env.VITE_BACKEND}/api/v1/course/my-enrollments`, {method:'GET', credentials:'include'})
+      }, 
+      {
+        path: '/watch/:courseId', Component: Watch
       }
     ]
   },
