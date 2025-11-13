@@ -542,3 +542,23 @@ body.dark-mode .control-btn {
     color: #fcfcfc;
     border: none;
 }
+
+body.dark-mode .profile-header h1 {
+    color: #ced0d3;
+}
+
+body.dark-mode .detail-group label {
+    color: #ced0d3;
+}
+
+body.dark-mode .photo-url-input {
+    color: #ced0d3;
+}
+
+body.dark-mode .photo-url-input::placeholder {
+    color: #ced0d3;
+}
+
+body.dark-mode .form-group label {
+    color: #ced0d3;
+}
