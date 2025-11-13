@@ -5,25 +5,30 @@ import { AuthContext } from './AuthContext';
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
 
+    const [loading, setLoading] = useState(true); 
+
     useEffect(() => {
         const checkAuth = async () => {
             try {
                 const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/v1/users/me`, {
                     withCredentials: true
-                })
+                });
                 const userData = {
-                    'email': res.data.data.email,
-                    'fullName': res.data.data.fullName,
-                    'accessToken': res.data.data.accessToken,
-                    'dpPath': res.data.data.dpPath
-                }
-                setUser(userData)
+                    email: res.data.data.email,
+                    fullName: res.data.data.fullName,
+                    accessToken: res.data.data.accessToken,
+                    dpPath: res.data.data.dpPath
+                };
+                setUser(userData);
             } catch (err) {
-                setUser(null)
+                setUser(null);
+            } finally {
+                setLoading(false);
             }
-        }
-        checkAuth()
-    }, [])
+        };
+        checkAuth();
+    }, []);
+
 
 
     const login = (email, fullName, accessToken, dpPath) => {
@@ -98,10 +103,10 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/logout`,{},{
-                headers : {
-                    'Content-Type' : 'application/json'
-                }, withCredentials:true
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/logout`, {}, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }, withCredentials: true
             })
             setUser(null)
             console.log(res)
@@ -112,7 +117,7 @@ const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ user, login, googleLogin, logOut }}>
+        <AuthContext.Provider value={{ user, login, googleLogin, logOut, loading }}>
             {children}
         </AuthContext.Provider>
     );
