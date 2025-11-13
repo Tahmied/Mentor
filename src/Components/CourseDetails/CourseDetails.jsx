@@ -153,11 +153,16 @@ const CourseDetails = () => {
 
               <button
                 className="enroll-button"
-                onClick={enrollCourse}
-                disabled={isEnrolled === null} 
+                onClick={() => {
+                  if (isEnrolled) {
+                    navigate(`/watch/${courseId}`);
+                  } else {
+                    enrollCourse();
+                  }
+                }}
               >
                 {isEnrolled === null ? (
-                  <span className="spinner"></span> 
+                  <span className="spinner"></span>
                 ) : isEnrolled ? (
                   'Watch Lectures'
                 ) : (
