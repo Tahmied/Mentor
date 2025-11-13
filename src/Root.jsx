@@ -9,7 +9,6 @@ const Root = () => {
     const navigation = useNavigation();
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    // Initialize dark mode from localStorage on mount
     useEffect(() => {
         const storedMode = localStorage.getItem('darkMode');
         if (storedMode === 'true') {
@@ -17,14 +16,12 @@ const Root = () => {
         }
     }, []);
 
-    // Toggle dark-mode class on body whenever isDarkMode changes
     useEffect(() => {
         if (isDarkMode) {
             document.body.classList.add('dark-mode');
         } else {
             document.body.classList.remove('dark-mode');
         }
-        // Save to localStorage
         localStorage.setItem('darkMode', isDarkMode);
     }, [isDarkMode]);
 

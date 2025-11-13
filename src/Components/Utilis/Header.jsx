@@ -5,7 +5,7 @@ import './dropdown.css';
 import HeaderDropdown from './HeaderDropdown';
 import ThemeToggle from './ThemeToggle';
 
-const Header = ({isDarkMode, setIsDarkMode}) => {
+const Header = ({ isDarkMode, setIsDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -76,8 +76,8 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
       { name: 'Home', path: '/' },
       { name: 'All Courses', path: '/courses' },
       { name: 'Dashboard', path: '/Dashboard' },
-      { name: 'My Courses', path: '/my-courses'},
-      { name: 'My Enrollments', path: '/my-enrollments'}
+      { name: 'My Courses', path: '/my-courses' },
+      { name: 'My Enrollments', path: '/my-enrollments' }
     ];
   } else {
     navItems = [
@@ -94,7 +94,7 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
   };
 
   const handleStartFreeClick = () => {
-    
+
   };
 
   const toggleDropdown = () => {
@@ -106,7 +106,12 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
       <header className={`learnova-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <div className="logo">
-            <NavLink to={'/'}><img src="/Header/logo.png" alt="Learnova" className="logo-image" /></NavLink>
+            <NavLink to={'/'}>
+              {
+                isDarkMode ? (<img src="/Header/logo-dark.png" alt="mentor" className="logo-image" />) : (<img src="/Header/logo.png" alt="mentor" className="logo-image" />)
+            }
+
+            </NavLink>
           </div>
 
           <nav className="desktop-nav">
