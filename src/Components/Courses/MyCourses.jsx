@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import EmptyState from '../Utilis/EmptyState';
 import Loader from '../Utilis/Loader';
 import './mycourses.css';
 
@@ -45,23 +46,7 @@ const MyCourses = () => {
       </div>
 
       {courses.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-state-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <h2 className="empty-state-title">No courses yet</h2>
-          <p className="empty-state-description">
-            Start sharing your knowledge with the world by creating your first course.
-          </p>
-          <button onClick={() => navigate('/create-course')} className="empty-state-btn">
-            <svg className="empty-state-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-            </svg>
-            Create Your First Course
-          </button>
-        </div>
+        <EmptyState title={'No courses yet'} text={'Start sharing your knowledge with the world by creating your first course.'} navigateBtnTxt={'Create Your First Course'} navigationLink={'/create-course'}></EmptyState>
       ) : (
         <div className="instructor-courses-grid">
           {courses.map((course) => (

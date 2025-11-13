@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import EmptyState from "../Utilis/EmptyState";
 import EnrolledCourse from "./EnrolledCourse";
 import './myenrollments.css';
 
@@ -14,10 +15,13 @@ const MyEnrollments = () => {
         <>
             <section className="courses">
 
+                {enrollmentsData.length === 0 ? (
+                <EmptyState title={'No Enrolled Courses Found'} text={'Start Learning by enrolling our courses'} navigateBtnTxt={'Enroll Your first Course'} navigationLink={'/courses'}></EmptyState>
+                ): (
                 <div className="courses-container">
                     {
-                         enrollmentsData.map(course => {
 
+                        enrollmentsData.map(course => {
                             return <EnrolledCourse
                                 key={course._id}
                                 thumbnail={course.thumbnail}
@@ -32,8 +36,12 @@ const MyEnrollments = () => {
                                 link={course._id}
                             />
                         })
+
                     }
                 </div>
+                )}
+
+
             </section>
         </>
     );
