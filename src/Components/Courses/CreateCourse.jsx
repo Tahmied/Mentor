@@ -124,7 +124,7 @@ export default function CreateCourse() {
       <Helmet>
         <title>Create Course | Mentor</title>
       </Helmet>
-      
+
       <div className="course-form-container">
         <div className="course-form-wrapper">
           <div className="course-form-header">
@@ -224,6 +224,13 @@ export default function CreateCourse() {
                   required
                 />
               </div>
+
+              <div class="select-wrapper">
+                <select id="category-filter" class="category-select">
+                  <option value="True">True</option>
+                  <option value="False">False</option>
+                  </select>
+                  <svg class="select-icon" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
             </div>
 
             {/* Lessons Section */}

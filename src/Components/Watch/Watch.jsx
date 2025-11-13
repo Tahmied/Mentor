@@ -167,7 +167,7 @@ const Watch = () => {
             {lessons.map((lesson, index) => (
               <div
                 key={lesson._id}
-                className={`lesson-item ${
+                className={`lesson-item-watch ${
                   index === currentLessonIndex ? 'active' : ''
                 } ${completedLessons.has(index) ? 'completed' : ''}`}
                 onClick={() => handleLessonClick(index)}

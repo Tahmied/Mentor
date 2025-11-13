@@ -223,7 +223,7 @@
     overflow-y: auto;
 }
 
-.lesson-item {
+.lesson-item-watch {
     display: flex;
     gap: 12px;
     padding: 16px 24px;
@@ -233,15 +233,15 @@
     border-radius: 0 !important;
 }
 
-.lesson-item:hover {
+.lesson-item-watch:hover {
     background: #f8f9fa;
 }
 
-.lesson-item.active {
+.lesson-item-watch.active {
     background: #f0f7ff;
 }
 
-.lesson-item.completed .lesson-number-badge {}
+.lesson-item-watch.completed .lesson-number-badge {}
 
 .lesson-number-badge {
     min-width: 32px;
@@ -256,7 +256,7 @@
     font-size: 14px;
 }
 
-.lesson-item.active .lesson-number-badge {
+.lesson-item-watch.active .lesson-number-badge {
     background: #0d6ffd;
     color: white;
 }
@@ -347,7 +347,7 @@
         padding: 16px;
     }
 
-    .lesson-item {
+    .lesson-item-watch {
         padding: 12px 16px;
     }
 
