@@ -103,7 +103,7 @@ const EditProfile = () => {
                 </div>
 
                 <form className="edit-form" onSubmit={handleSubmit}>
-                    <div className="form-section">
+                    <div className="form-section-myprofile">
                         <div className="photo-edit-section">
                             <div className="photo-container">
                                 <img
@@ -123,7 +123,7 @@ const EditProfile = () => {
                         </div>
                     </div>
 
-                    <div className="form-section">
+                    <div className="form-section-myprofile">
                         <div className="form-group">
                             <label htmlFor="fullName">Display Name</label>
                             <input

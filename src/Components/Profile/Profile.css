@@ -117,12 +117,12 @@
     flex-direction: column;
 }
 
-.form-section {
+.form-section-myprofile {
     padding: 20px;
     border-radius: 8px;
 }
 
-.form-section h3 {
+.form-section-myprofile h3 {
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--primary-color);
@@ -131,7 +131,7 @@
 .photo-edit-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
 }
 
@@ -141,6 +141,7 @@
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 14px;
+    width: 100%;
 }
 
 .form-group {
