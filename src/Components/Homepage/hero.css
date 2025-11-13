@@ -53,6 +53,12 @@
     margin-right: auto;
 }
 
+@media (max-width:375px) {
+    .hero-content p {
+        width: 90%;
+    }
+}
+
 .hero-content p .learner-count {
     color: #2563eb;
     font-weight: 600;
