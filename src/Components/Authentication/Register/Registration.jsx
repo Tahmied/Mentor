@@ -44,11 +44,36 @@ const Registration = () => {
         e.preventDefault();
         setLoading(true);
 
-        // Validate password (optional - add your own rules)
+        const password = formData.password;
+        const upperCaseRegex = /[A-Z]/;
+        const lowerCaseRegex = /[a-z]/;
+
         if (formData.password.length < 6) {
             Swal.fire({
                 title: 'Weak Password',
                 text: 'Password must be at least 6 characters long',
+                icon: 'warning',
+                showConfirmButton: true
+            });
+            setLoading(false);
+            return;
+        }
+
+        if (!lowerCaseRegex.test(password)) {
+            Swal.fire({
+                title: 'Weak Password',
+                text: 'Password must contain at least one lowercase letter.',
+                icon: 'warning',
+                showConfirmButton: true
+            });
+            setLoading(false);
+            return;
+        }
+
+        if (!upperCaseRegex.test(password)) {
+            Swal.fire({
+                title: 'Weak Password',
+                text: 'Password must contain at least one uppercase letter.',
                 icon: 'warning',
                 showConfirmButton: true
             });
@@ -64,7 +89,6 @@ const Registration = () => {
         };
 
         try {
-            // Register the user
             await axios.post(
                 `${import.meta.env.VITE_BACKEND}/api/v1/users/register`,
                 registerDetails,
@@ -76,7 +100,6 @@ const Registration = () => {
                 }
             );
 
-            // After successful registration, log them in
             const loginRes = await axios.post(
                 `${import.meta.env.VITE_BACKEND}/api/v1/users/login`,
                 {
@@ -91,7 +114,6 @@ const Registration = () => {
                 }
             );
 
-            // Set user in context
             login(
                 loginRes.data.data.user.email,
                 loginRes.data.data.user.fullName,
@@ -101,7 +123,6 @@ const Registration = () => {
 
             setLoading(false);
 
-            // Show success message
             Swal.fire({
                 title: 'Registration Successful!',
                 text: 'Your account has been created successfully',
