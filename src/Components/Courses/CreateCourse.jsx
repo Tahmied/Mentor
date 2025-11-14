@@ -277,6 +277,8 @@ export default function CreateCourse() {
 
                       <div className="form-group">
                         <label className="form-label">YouTube Video URL</label>
+                        <label className="form-label">Make sure to add youtube video link in this format</label>
+                        <label className="form-label">(https://www.youtube.com/watch?v=EYYjuVCE0zI)</label>
                         <input
                           type="url"
                           value={lesson.videoUrl}

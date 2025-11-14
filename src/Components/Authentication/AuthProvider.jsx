@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
                 setUser(userData);
             } catch (err) {
                 setUser(null);
+                console.log(err)
             } finally {
                 setLoading(false);
             }
@@ -69,12 +70,12 @@ const AuthProvider = ({ children }) => {
                     })
                     login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
                 } catch (error) {
-                    
+                    console.log(error)
                 }
             }
 
         } catch (error) {
-           
+           console.log(error)
             // jodi user na thake register kor
             try {
                 const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/register`,
@@ -85,7 +86,7 @@ const AuthProvider = ({ children }) => {
                         }, withCredentials: true
                     }
                 )
-                
+                console.log(res)
                 try {
                     const loginRes = await axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/users/login`, { "email": email, "password": password }, {
                         headers: {
@@ -94,10 +95,10 @@ const AuthProvider = ({ children }) => {
                     })
                     login(loginRes.data.data.user.email, loginRes.data.data.user.fullName, loginRes.data.data.accessToken, loginRes.data.data.user.dpPath)
                 } catch (error) {
-                    
+                    console.log(error)
                 }
             } catch (error) {
-                
+                console.log(error)
             }
         }
     }
@@ -110,9 +111,9 @@ const AuthProvider = ({ children }) => {
                 }, withCredentials: true
             })
             setUser(null)
-           
+           console.log(res)
         } catch (error) {
-            
+            console.log(error)
         }
     }
 

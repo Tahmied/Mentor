@@ -642,3 +642,11 @@ body.dark-mode .terms label {
 body.dark-mode .login-link {
     color: #ced0d3;
 }
+
+body.dark-mode .logout-btn {
+    color: #e74c3c !important;
+}
+
+body.dark-mode .logout-btn:hover {
+    color: #e74c3c !important;
+}

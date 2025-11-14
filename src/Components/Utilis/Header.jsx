@@ -82,8 +82,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
   } else {
     navItems = [
       { name: 'Home', path: '/' },
-      { name: 'All Courses', path: '/courses' },
-      { name: 'Mentors', path: '/features' }
+      { name: 'All Courses', path: '/courses' }
     ];
   }
 
