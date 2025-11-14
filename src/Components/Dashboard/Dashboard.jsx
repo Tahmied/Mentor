@@ -19,7 +19,7 @@ const Dashboard = () => {
                     </div>
                 </Link>
 
-                <Link to="/courses">
+                <Link to="/">
                     <div className="dashboard-card">
                         <div className="card-icon">🏠</div>
                         <h3>Explore Our Platform</h3>
@@ -51,7 +51,7 @@ const Dashboard = () => {
                     </div>
                 </Link>
 
-                <Link to="/">
+                <Link to="/courses">
                     <div className="dashboard-card">
                         <div className="card-icon">🔍</div>
                         <h3>Explore More Courses</h3>

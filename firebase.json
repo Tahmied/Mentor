@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "hosting": {
     "public": "dist",
     "ignore": [
@@ -15,20 +14,3 @@
     ]
   }
 }
-=======
-    "hosting": {
-        "public": "dist",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [
-            {
-                "source": "**",
-                "destination": "/index.html"
-            }
-        ]
-    }
-}
->>>>>>> af85a22 (- added some extra features and some more custom styles)
