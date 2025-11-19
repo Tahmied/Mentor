@@ -1,4 +1,7 @@
 # Mentor - A E-Learning Platform (Client Side)
+
+<img src='https://raw.githubusercontent.com/Tahmied/Mentor/refs/heads/main/public/screenshot.png' alt='mentor UI'/>
+
 An interactive, modern, and user-friendly E-learning platform where users can sign up, enroll in courses, publish their own courses, and access detailed lecture content.
 This repository contains the client-side (frontend) of the Mentor platform.
 Live Demo: [Live Front end](https://mentor-faf09.web.app/)
